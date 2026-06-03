@@ -8,7 +8,7 @@ namespace SmartClinic.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ScanController : Controller
+        public class ScanController : Controller
     {
         private readonly IScanService _scanService;
 
@@ -24,55 +24,44 @@ namespace SmartClinic.API.Controllers
         [HttpGet("GetScanQueue")]
         public async Task<IActionResult> GetScanQueue()
         {
-            var result =
-                await _scanService
-                    .GetScanQueueAsync();
-
-            return Ok(new
-            {
-                success = true,
-
-                data = result
-            });
+            var result = await _scanService.GetScanQueueAsync();
+            return Ok(new { success = true, data = result });
         }
 
+        [HttpPost("UpdateScanTokenStatus")]
+        public async Task<IActionResult> UpdateScanTokenStatus([FromBody] UpdateTokenStatusDto request)
+        {
+            try
+            {
+                var result = await _scanService.UpdateScanTokenStatusAsync(request);
+                if (!result.Success)
+                {
+                    return BadRequest(new { success = false, message = result.Message });
+                }
+                return Ok(new { success = true, message = result.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
         [HttpPost("CompleteScan")]
         public async Task<IActionResult> CompleteScan([FromBody] CompleteScanRequest request)
         {
             try
             {
-                var result =
-                    await _scanService
-                        .CompleteScanAsync(
-                            request.Id,
-                            request.TokenId);
-
+                var result = await _scanService.CompleteScanAsync(request.Id, request.TokenId);
                 if (!result.Success)
                 {
-                    return BadRequest(new
-                    {
-                        success = false,
-                        message =
-                            result.Message
-                    });
+                    return BadRequest(new { success = false, message = result.Message });
                 }
-
-                return Ok(new
-                {
-                    success = true,
-                    message =
-                        result.Message
-                });
+                return Ok(new { success = true, message = result.Message });
             }
             catch (Exception ex)
             {
-                return BadRequest(new
-                {
-                    success = false,
-                    message =
-                        ex.Message
-                });
+                return BadRequest(new { success = false, message = ex.Message });
             }
         }
     }
+
 }
