@@ -1,0 +1,8 @@
+﻿namespace SmartClinic.Web.Models.Scan
+{
+    public class UpdateTokenStatusDto
+    {
+        public int TokenId { get; set; }
+        public string? Action { get; set; }
+    }
+}

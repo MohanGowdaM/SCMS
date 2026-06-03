@@ -74,3 +74,12 @@ D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\n
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.pdb
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.genruntimeconfig.cache
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\ref\SmartClinic.Infrastructure.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.csproj.AssemblyReference.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.AssemblyInfoInputs.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.AssemblyInfo.cs
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.csproj.CoreCompileInputs.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.sourcelink.json
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\refint\SmartClinic.Infrastructure.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.Infrastructure\obj\Debug\net10.0\SmartClinic.Infrastructure.pdb

@@ -7,8 +7,9 @@ namespace SmartClinic.Application.Interfaces
 {
     public interface IScanService
     {
-        Task<List<ScanQueueDto>> GetScanQueueAsync();
+        Task<ScanQueueDto> GetScanQueueAsync();
 
-        Task<ApiResponse<bool>> CompleteScanAsync(int id,int tokenId);
+        Task<ApiResponse<bool>> CompleteScanAsync(int id, int tokenId);
+        Task<ApiResponse<bool>> UpdateScanTokenStatusAsync(UpdateTokenStatusDto request);
     }
 }

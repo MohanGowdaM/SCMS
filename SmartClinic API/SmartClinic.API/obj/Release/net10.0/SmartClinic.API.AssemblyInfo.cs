@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartClinic.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d7f8e76035d5f01ab9468af30f47aea476db19b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartClinic.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartClinic.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

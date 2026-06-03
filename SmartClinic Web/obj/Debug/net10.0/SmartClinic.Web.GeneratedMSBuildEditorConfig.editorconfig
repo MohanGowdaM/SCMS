@@ -20,157 +20,157 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.EntryPointFilePath = 
 build_property.RootNamespace = SmartClinic.Web
 build_property.RootNamespace = SmartClinic.Web
-build_property.ProjectDir = D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic Web\
+build_property.ProjectDir = C:\Users\mohan.g\source\repos\MohanGowdaM\SCMS\SmartClinic Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic Web
+build_property.MSBuildProjectDirectory = C:\Users\mohan.g\source\repos\MohanGowdaM\SCMS\SmartClinic Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Account/AccessDenied.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Account/Login.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Admission/AdmitQueue.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Admission/AdmitQueue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXEFkbWl0UXVldWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Admission/_AssignBedModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Admission/_AssignBedModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaXNzaW9uXF9Bc3NpZ25CZWRNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Appointments/GetAllAppointments.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Appointments/GetAllAppointments.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRzXEdldEFsbEFwcG9pbnRtZW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Appointments/_GenerateTokenModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Appointments/_GenerateTokenModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRzXF9HZW5lcmF0ZVRva2VuTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Billing/BillingQueue.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Billing/BillingQueue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xCaWxsaW5nUXVldWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Dashboard/Index.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Doctors/DoctorTerminal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Doctors/DoctorTerminal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yc1xEb2N0b3JUZXJtaW5hbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Doctors/_ConsultationModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Doctors/_ConsultationModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yc1xfQ29uc3VsdGF0aW9uTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Lab/LabQueue.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Lab/LabQueue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiXExhYlF1ZXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/AddPatient.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/AddPatient.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcQWRkUGF0aWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/GetAllPatientList.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/GetAllPatientList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcR2V0QWxsUGF0aWVudExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_AddPatientModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_AddPatientModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcX0FkZFBhdGllbnRNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_EditPatientModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_EditPatientModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcX0VkaXRQYXRpZW50TW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_ViewPatientModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Patients/_ViewPatientModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudHNcX1ZpZXdQYXRpZW50TW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Pharmacy/PharmacyQueue.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Pharmacy/PharmacyQueue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcUGhhcm1hY3lRdWV1ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Pharmacy/_DispenseMedicineModal.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Pharmacy/_DispenseMedicineModal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcX0Rpc3BlbnNlTWVkaWNpbmVNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Scan/ScanQueue.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Scan/ScanQueue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NhblxTY2FuUXVldWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Footer.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Header.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_LoginLayout.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Sidebar.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/Index.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/RolesList.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/RolesList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cUm9sZXNMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_DepartmentForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_DepartmentForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX0RlcGFydG1lbnRGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_DoctorForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_DoctorForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX0RvY3RvckZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_PriorityForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_PriorityForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX1ByaW9yaXR5Rm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_RoleForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_RoleForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX1JvbGVGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_SymptomForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_SymptomForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX1N5bXB0b21Gb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_TokenStatusForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_TokenStatusForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX1Rva2VuU3RhdHVzRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_UserForm.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/SystemAdmin/_UserForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3lzdGVtQWRtaW5cX1VzZXJGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/_ViewImports.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/_ViewStart.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SCMS/Repository/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Layout.cshtml]
+[C:/Users/mohan.g/source/repos/MohanGowdaM/SCMS/SmartClinic Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sghnsza2qu

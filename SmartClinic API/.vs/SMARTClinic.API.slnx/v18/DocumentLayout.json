@@ -1,102 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\",
+  "WorkspaceRootPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\patientbillingrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\patientbillingrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\scms\\repository\\mohangowdam\\scms\\smartclinic api\\smartclinic.application\\dtos\\updatetokenstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\updatetokenstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.infrastructure\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|solutionrelative:smartclinic.infrastructure\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.api\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|solutionrelative:smartclinic.api\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\dtos\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\paymentrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.infrastructure\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|solutionrelative:smartclinic.infrastructure\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.api\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|solutionrelative:smartclinic.api\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|solutionrelative:smartclinic.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.infrastructure\\services\\systemadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|solutionrelative:smartclinic.infrastructure\\services\\systemadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.api\\controllers\\systemadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|solutionrelative:smartclinic.api\\controllers\\systemadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\dtos\\doctorqueueresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\doctorqueueresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.infrastructure\\persistence\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|solutionrelative:smartclinic.infrastructure\\persistence\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\dtos\\scantestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\scantestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\scancategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\scancategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\scantest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\scantest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\dtos\\labtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\labtestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\labtestcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\labtestcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.domain\\entities\\labtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BA33694-1DA5-9E2B-45A6-53225B82D85B}|SmartClinic.Domain\\SmartClinic.Domain.csproj|solutionrelative:smartclinic.domain\\entities\\labtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.infrastructure\\services\\labservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5FF82C95-19FF-7FD3-863C-249E3238DD2E}|SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj|solutionrelative:smartclinic.infrastructure\\services\\labservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|d:\\smartclinic\\03.06.2026\\smartclinic api\\smartclinic.application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11126090-5E5C-E6AA-0944-F5A498B220EA}|SmartClinic.Application\\SmartClinic.Application.csproj|solutionrelative:smartclinic.application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|d:\\scms\\repository\\mohangowdam\\scms\\smartclinic api\\smartclinic.api\\controllers\\scancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2D5C9FF-2692-6632-526A-863C0B54BF8F}|SmartClinic.API\\SmartClinic.API.csproj|solutionrelative:smartclinic.api\\controllers\\scancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,310 +18,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PatientBillingRequest.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\PatientBillingRequest.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\PatientBillingRequest.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\PatientBillingRequest.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\PatientBillingRequest.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwCIAAAA1AAAAAAAAAA==",
+              "Title": "UpdateTokenStatusDto.cs",
+              "DocumentMoniker": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Application\\DTOs\\UpdateTokenStatusDto.cs",
+              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\UpdateTokenStatusDto.cs",
+              "ToolTip": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Application\\DTOs\\UpdateTokenStatusDto.cs",
+              "RelativeToolTip": "SmartClinic.Application\\DTOs\\UpdateTokenStatusDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T04:11:28.571Z",
+              "WhenOpened": "2026-06-03T06:31:58.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AppointmentService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\AppointmentService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Infrastructure\\Services\\AppointmentService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\AppointmentService.cs",
-              "RelativeToolTip": "SmartClinic.Infrastructure\\Services\\AppointmentService.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAIAywJwBAAAuAAAAAAAAAA==",
+              "Title": "ScanController.cs",
+              "DocumentMoniker": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.API\\Controllers\\ScanController.cs",
+              "RelativeDocumentMoniker": "SmartClinic.API\\Controllers\\ScanController.cs",
+              "ToolTip": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.API\\Controllers\\ScanController.cs",
+              "RelativeToolTip": "SmartClinic.API\\Controllers\\ScanController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T04:09:40.206Z",
+              "WhenOpened": "2026-06-03T06:31:10.326Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IAppointmentService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\Interfaces\\IAppointmentService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\Interfaces\\IAppointmentService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\Interfaces\\IAppointmentService.cs",
-              "RelativeToolTip": "SmartClinic.Application\\Interfaces\\IAppointmentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T04:09:14.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PaymentRequest.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\PaymentRequest.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\PaymentRequest.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\PaymentRequest.cs",
-              "RelativeToolTip": "SmartClinic.Application\\DTOs\\PaymentRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T04:08:49.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "SmartClinic.API\\Controllers\\AppointmentController.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "SmartClinic.API\\Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T04:08:00.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Doctor.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Doctor.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\Doctor.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Doctor.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\Doctor.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAMwBMAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T03:42:42.52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DoctorQueueResponseDto.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\DoctorQueueResponseDto.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\DoctorQueueResponseDto.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\DoctorQueueResponseDto.cs",
-              "RelativeToolTip": "SmartClinic.Application\\DTOs\\DoctorQueueResponseDto.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAwwCQAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-03T03:40:18.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Token.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Token.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\Token.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Token.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\Token.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAlwDkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T10:22:06.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Service.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Service.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\Service.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\Service.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\Service.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T10:20:30.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DoctorService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\DoctorService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Infrastructure\\Services\\DoctorService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\DoctorService.cs",
-              "RelativeToolTip": "SmartClinic.Infrastructure\\Services\\DoctorService.cs",
-              "ViewState": "AgIAAHsCAAAAAAAAAAAMwEYCAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T11:58:38.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SystemAdminService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\SystemAdminService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Infrastructure\\Services\\SystemAdminService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\SystemAdminService.cs",
-              "RelativeToolTip": "SmartClinic.Infrastructure\\Services\\SystemAdminService.cs",
-              "ViewState": "AgIAADYEAAAAAAAAAAAMwEYEAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T09:55:28.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DoctorsController.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\DoctorsController.cs",
-              "RelativeDocumentMoniker": "SmartClinic.API\\Controllers\\DoctorsController.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\DoctorsController.cs",
-              "RelativeToolTip": "SmartClinic.API\\Controllers\\DoctorsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA3wK4AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:25:16.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SystemAdminController.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\SystemAdminController.cs",
-              "RelativeDocumentMoniker": "SmartClinic.API\\Controllers\\SystemAdminController.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\Controllers\\SystemAdminController.cs",
-              "RelativeToolTip": "SmartClinic.API\\Controllers\\SystemAdminController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwFkCAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T09:53:55.249Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\appsettings.json",
-              "RelativeDocumentMoniker": "SmartClinic.API\\appsettings.json",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.API\\appsettings.json",
-              "RelativeToolTip": "SmartClinic.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-02T08:08:58.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Persistence\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Infrastructure\\Persistence\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Persistence\\ApplicationDbContext.cs",
-              "RelativeToolTip": "SmartClinic.Infrastructure\\Persistence\\ApplicationDbContext.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAQwD8AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:34:13.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IDoctorService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\Interfaces\\IDoctorService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\Interfaces\\IDoctorService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\Interfaces\\IDoctorService.cs",
-              "RelativeToolTip": "SmartClinic.Application\\Interfaces\\IDoctorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAwBsAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:26:26.911Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "LabTestCategory.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\LabTestCategory.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\LabTestCategory.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\LabTestCategory.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\LabTestCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:31:55.722Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ScanCategory.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\ScanCategory.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\ScanCategory.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\ScanCategory.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\ScanCategory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T10:50:31.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ScanTest.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\ScanTest.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\ScanTest.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\ScanTest.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\ScanTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T10:51:19.961Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ScanTestDto.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\ScanTestDto.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\ScanTestDto.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\ScanTestDto.cs",
-              "RelativeToolTip": "SmartClinic.Application\\DTOs\\ScanTestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T10:53:33.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "LabTestDto.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\LabTestDto.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\LabTestDto.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\LabTestDto.cs",
-              "RelativeToolTip": "SmartClinic.Application\\DTOs\\LabTestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:23:57.685Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "LabTest.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\LabTest.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Domain\\Entities\\LabTest.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\Entities\\LabTest.cs",
-              "RelativeToolTip": "SmartClinic.Domain\\Entities\\LabTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-29T06:32:39.321Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "LabService.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\LabService.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Infrastructure\\Services\\LabService.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\Services\\LabService.cs",
-              "RelativeToolTip": "SmartClinic.Infrastructure\\Services\\LabService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T10:16:05.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\UserDto.cs",
-              "RelativeDocumentMoniker": "SmartClinic.Application\\DTOs\\UserDto.cs",
-              "ToolTip": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\DTOs\\UserDto.cs",
-              "RelativeToolTip": "SmartClinic.Application\\DTOs\\UserDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T09:56:05.965Z"
             }
           ]
         }

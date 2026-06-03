@@ -361,3 +361,15 @@ D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\refi
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.genruntimeconfig.cache
 D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\ref\SmartClinic.API.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.AssemblyReference.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfoInputs.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfo.cs
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.CoreCompileInputs.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cs
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cache
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.sourcelink.json
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\refint\SmartClinic.API.dll
+D:\SCMS\Repository\MohanGowdaM\SCMS\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb

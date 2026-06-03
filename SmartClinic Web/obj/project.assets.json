@@ -5615,26 +5615,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Att\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\mohan.g\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMARTClinic\\03.06.2026\\SmartClinic Web\\SmartClinic.Web.csproj",
+      "projectUniqueName": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic Web\\SmartClinic.Web.csproj",
       "projectName": "SmartClinic.Web",
-      "projectPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic Web\\SmartClinic.Web.csproj",
-      "packagesPath": "C:\\Users\\Att\\.nuget\\packages\\",
-      "outputPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic Web\\obj\\",
+      "projectPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic Web\\SmartClinic.Web.csproj",
+      "packagesPath": "C:\\Users\\mohan.g\\.nuget\\packages\\",
+      "outputPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Att\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mohan.g\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\nuget.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"

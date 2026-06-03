@@ -3792,26 +3792,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Att\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\mohan.g\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj",
+      "projectUniqueName": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj",
       "projectName": "SmartClinic.Infrastructure",
-      "projectPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Att\\.nuget\\packages\\",
-      "outputPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Infrastructure\\obj\\",
+      "projectPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Infrastructure\\SmartClinic.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\mohan.g\\.nuget\\packages\\",
+      "outputPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Att\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mohan.g\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\nuget.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -3826,11 +3827,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\SmartClinic.Application.csproj": {
-              "projectPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Application\\SmartClinic.Application.csproj"
+            "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Application\\SmartClinic.Application.csproj": {
+              "projectPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Application\\SmartClinic.Application.csproj"
             },
-            "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
-              "projectPath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\SmartClinic.Domain.csproj"
+            "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Domain\\SmartClinic.Domain.csproj": {
+              "projectPath": "D:\\SCMS\\Repository\\MohanGowdaM\\SCMS\\SmartClinic API\\SmartClinic.Domain\\SmartClinic.Domain.csproj"
             }
           }
         }
