@@ -1,0 +1,88 @@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="container-fluid">
+
+    <h2>System Administration</h2>
+
+    <ul class="nav nav-tabs" id="saTabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#rolesTab">Roles</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#usersTab">Users</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#departmentsTab">Departments</a></li>
+        @* <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#doctorsTab">Doctors</a></li> *@
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#symptomsTab">Symptoms</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#prioritiesTab">Priorities</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tokenStatusesTab">Token Statuses</a></li>
+    </ul>
+
+    <div class="tab-content mt-3">
+        <div id="rolesTab" class="tab-pane fade show active">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openRoleCreate()">New Role</button>
+            </div>
+            <div id="rolesList"></div>
+        </div>
+
+        <div id="usersTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openUserCreate()">New User</button>
+            </div>
+            <div id="usersList"></div>
+        </div>
+
+        <div id="departmentsTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openDepartmentCreate()">New Department</button>
+            </div>
+            <div id="departmentsList"></div>
+        </div>
+
+       @*  <div id="doctorsTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openDoctorCreate()">New Doctor</button>
+            </div>
+            <div id="doctorsList"></div>
+        </div> *@
+
+        <div id="symptomsTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openSymptomCreate()">New Symptom</button>
+            </div>
+            <div id="symptomsList"></div>
+        </div>
+
+        <div id="prioritiesTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openPriorityCreate()">New Priority</button>
+            </div>
+            <div id="prioritiesList"></div>
+        </div>
+
+        <div id="tokenStatusesTab" class="tab-pane fade">
+            <div class="d-flex justify-content-end mb-2">
+                <button class="btn btn-primary" onclick="sa.openTokenStatusCreate()">New Token Status</button>
+            </div>
+            <div id="tokenStatusesList"></div>
+        </div>
+    </div>
+
+</div>
+<!-- include partials as hidden modals -->
+@await Html.PartialAsync("_RoleForm")
+@await Html.PartialAsync("_UserForm")
+@await Html.PartialAsync("_DepartmentForm")
+@await Html.PartialAsync("_DoctorForm")
+@await Html.PartialAsync("_SymptomForm")
+@await Html.PartialAsync("_PriorityForm")
+@await Html.PartialAsync("_TokenStatusForm")
+<script src="~/js/systemadmin.js" asp-append-version="true"></script>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(function () {
+    sa.loadAll();
+    });
+</script>

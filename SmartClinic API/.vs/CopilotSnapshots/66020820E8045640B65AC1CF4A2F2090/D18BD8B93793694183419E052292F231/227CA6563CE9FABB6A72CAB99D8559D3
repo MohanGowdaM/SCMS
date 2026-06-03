@@ -1,0 +1,156 @@
+﻿#nullable disable
+using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Domain.Entities;
+
+
+namespace SmartClinic.Infrastructure.Persistence;
+
+public partial class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<AuditLog> AuditLogs { get; set; }
+
+    public virtual DbSet<Department> Departments { get; set; }
+
+    public virtual DbSet<Doctor> Doctors { get; set; }
+
+    public virtual DbSet<Notification> Notifications { get; set; }
+
+    public virtual DbSet<NotificationType> NotificationTypes { get; set; }
+
+    public virtual DbSet<Patient> Patients { get; set; }
+
+    public virtual DbSet<PriorityConfig> PriorityConfigs { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<Symptom> Symptoms { get; set; }
+
+    public virtual DbSet<Token> Tokens { get; set; }
+
+    public virtual DbSet<TokenStatus> TokenStatuses { get; set; }
+
+    public virtual DbSet<TokenSymptom> TokenSymptoms { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<AuditLog>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__AuditLog__3214EC0710BBC54A");
+
+            entity.Property(e => e.Timestamp).HasDefaultValueSql("(getdate())");
+        });
+
+        modelBuilder.Entity<Department>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Departme__3214EC07C30491B4");
+
+            entity.Property(e => e.CreatedDateTime).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.IsDeleted).HasDefaultValue(true);
+            entity.Property(e => e.UpdatedDateTime).HasDefaultValueSql("(getdate())");
+        });
+
+        modelBuilder.Entity<Doctor>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Doctors__3214EC07702FB1D1");
+
+            entity.Property(e => e.ConsultationTimeInMin).HasDefaultValue(10);
+            entity.Property(e => e.CreatedDateTime).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.IsAvailable).HasDefaultValue(true);
+            entity.Property(e => e.UpdatedDateTime).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.Department).WithMany(p => p.Doctors).HasConstraintName("FK__Doctors__Updated__48CFD27E");
+        });
+
+        modelBuilder.Entity<Notification>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Notifica__3214EC07A85EE2CF");
+
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.Type).WithMany(p => p.Notifications).HasConstraintName("FK__Notificat__TypeI__6754599E");
+        });
+
+        modelBuilder.Entity<NotificationType>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Notifica__3214EC07E49DED9F");
+        });
+
+        modelBuilder.Entity<Patient>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Patients__3214EC0772FECE7F");
+
+            entity.Property(e => e.CreatedDateTime).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.UpdatedDateTime).HasDefaultValueSql("(getdate())");
+        });
+
+        modelBuilder.Entity<PriorityConfig>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Priority__3214EC079C32137E");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Roles__3214EC07E6CDDB02");
+        });
+
+        modelBuilder.Entity<Symptom>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Symptoms__3214EC077F164131");
+
+            entity.Property(e => e.IsDeleted).HasDefaultValue(true);
+        });
+
+        modelBuilder.Entity<Token>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Tokens__3214EC074A672BA6");
+
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.Department).WithMany(p => p.Tokens).HasConstraintName("FK__Tokens__Departme__5DCAEF64");
+
+            entity.HasOne(d => d.Doctor).WithMany(p => p.Tokens).HasConstraintName("FK__Tokens__DoctorId__5EBF139D");
+
+            entity.HasOne(d => d.Patient).WithMany(p => p.Tokens).HasConstraintName("FK__Tokens__PatientI__5CD6CB2B");
+
+            entity.HasOne(d => d.Status).WithMany(p => p.Tokens).HasConstraintName("FK__Tokens__StatusId__5FB337D6");
+        });
+
+        modelBuilder.Entity<TokenStatus>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__TokenSta__3214EC0780738040");
+        });
+
+        modelBuilder.Entity<TokenSymptom>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__TokenSym__3214EC0727994D72");
+
+            entity.HasOne(d => d.Symptom).WithMany(p => p.TokenSymptoms).HasConstraintName("FK__TokenSymp__Sympt__6383C8BA");
+
+            entity.HasOne(d => d.Token).WithMany(p => p.TokenSymptoms).HasConstraintName("FK__TokenSymp__Token__628FA481");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC074B4C91B7");
+
+            entity.Property(e => e.CreatedDateTime).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.IsDeleted).HasDefaultValue(true);
+            entity.Property(e => e.UpdatedDateTime).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Users).HasConstraintName("FK__Users__RoleId__3D5E1FD2");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}

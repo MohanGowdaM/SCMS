@@ -1,0 +1,411 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class AppointmentService : IAppointmentService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public AppointmentService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<ApiResponse<List<AppointmentDto>>> GetAllAppointmentsAsync()
+        {
+            try
+            {
+                var appointments = await _context.Tokens
+                    .Include(x => x.Patient)
+                    .Include(x => x.Doctor)
+                    .Include(x => x.Department)
+                    .Include(x => x.Status)
+                    .Where(x => x.Patient != null && x.Patient.IsDeleted == false && x.IsDeleted==false).OrderByDescending(x => x.CreatedAt).ToListAsync();
+
+                if (!appointments.Any())
+                {
+                    return new ApiResponse<List<AppointmentDto>>
+                    {
+                        Success = true,
+                        Message = "No appointments found",
+                        Data = new List<AppointmentDto>()
+                    };
+                }
+
+                var appointmentDtos = new List<AppointmentDto>();
+                int slNo = 1;
+
+                foreach (var appointment in appointments)
+                {
+                    // Get priority name from PriorityConfig
+                    var priorityName = "Normal";
+                    if (appointment.Priority.HasValue && appointment.Priority > 0)
+                    {
+                        priorityName = await _context.PriorityConfigs
+                            .Where(x => x.Id == appointment.Priority && x.IsDeleted == false)
+                            .Select(x => x.Name)
+                            .FirstOrDefaultAsync() ?? "Normal";
+                    }
+
+                    var dto = new AppointmentDto
+                    {
+                        Id=appointment.Id,
+                        SlNo = slNo++,
+                        TokenNumber = appointment.TokenNumber,
+                        Uhid = appointment.Patient?.Uhid ?? string.Empty,
+                        PatientName = appointment.Patient?.Name ?? string.Empty,
+                        DoctorName = appointment.Doctor?.Name ?? "Not Assigned",
+                        DepartmentName = appointment.Department?.Name ?? string.Empty,
+                        PriorityName = priorityName,
+                        StatusName = appointment.Status?.Name ?? "Unknown",
+                        CreatedTime = appointment.CreatedAt
+                    };
+
+                    appointmentDtos.Add(dto);
+                }
+
+                return new ApiResponse<List<AppointmentDto>>
+                {
+                    Success = true,
+                    Message = $"Retrieved {appointmentDtos.Count} appointments successfully",
+                    Data = appointmentDtos
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<List<AppointmentDto>>
+                {
+                    Success = false,
+                    Message = $"Error retrieving appointments: {ex.Message}",
+                    Data = new List<AppointmentDto>()
+                };
+            }
+        }
+
+        public async Task<ApiResponse<string>> UpdateStatusAsync(UpdateStatusRequest request)
+        {
+            try
+            {
+                // Validate request
+                if (request == null || request.AppointmentId <= 0)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Invalid appointment ID"
+                    };
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Status))
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Status cannot be empty"
+                    };
+                }
+
+                // Find the token/appointment
+                var token = await _context.Tokens
+                    .FirstOrDefaultAsync(x => x.Id == request.AppointmentId);
+
+                if (token == null)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Appointment not found"
+                    };
+                }
+
+                // Find the status by name
+                var tokenStatus = await _context.TokenStatuses
+                    .FirstOrDefaultAsync(x =>
+                        x.Name.ToLower() == request.Status.ToLower() &&
+                        x.IsDeleted == false);
+
+                if (tokenStatus == null)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = $"Status '{request.Status}' not found"
+                    };
+                }
+
+                // Update the token status
+                token.StatusId = tokenStatus.Id;
+
+                // Set status-specific timestamps
+                if (request.Status.ToLower() == "called")
+                {
+                    token.CalledAt = DateTime.Now;
+                }
+                else if (request.Status.ToLower() == "completed")
+                {
+                    token.CompletedAt = DateTime.Now;
+                }
+
+                _context.Tokens.Update(token);
+                await _context.SaveChangesAsync();
+
+                return new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = $"Appointment status updated to '{request.Status}' successfully"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = $"Error updating appointment status: {ex.Message}"
+                };
+            }
+        }      
+
+
+        public async Task<ApiResponse<AppointmentConflictResponse>>CheckAppointmentConflictAsync(CheckAppointmentConflictRequest request)
+        {
+            try
+            {
+                // Validate
+                if (
+                    request == null ||
+                    request.PatientId <= 0
+                )
+                {
+                    return new ApiResponse<AppointmentConflictResponse>
+                    {
+                        Success = false,
+                        Message = "Invalid patient ID"
+                    };
+                }
+
+                // Active appointment statuses
+                var validStatuses =
+                    new[]
+                    {
+                "pending",
+                "called",
+                "in progress"
+                    };
+
+                var appointmentDate =
+                    request
+                        .AppointmentDateTime
+                        .Date;
+
+                // Get active appointments
+                var appointments =
+                    await _context
+                        .Tokens
+                        .Include(x => x.Status)
+                        .Include(x => x.Department)
+                        .Include(x => x.Doctor)
+
+                        .Where(x => x.PatientId == request.PatientId && x.AppointmentDateTime.HasValue && x.AppointmentDateTime.Value.Date == appointmentDate
+                        && validStatuses.Contains(x.Status.Name.ToLower()) && x.IsDeleted == false).OrderByDescending(x => x.AppointmentDateTime).ToListAsync();
+
+
+                // =====================================
+                // CASE 1:
+                // Same DateTime → BLOCK
+                // =====================================
+                var exactMatch =
+                    appointments
+                        .FirstOrDefault(x =>
+
+                            Math.Abs(
+                                (
+                                    x.AppointmentDateTime
+                                        .Value
+                                    -
+                                    request
+                                        .AppointmentDateTime
+                                )
+                                .TotalMinutes
+                            ) < 1
+                        );
+
+                if (exactMatch != null)
+                {
+                    return new ApiResponse<AppointmentConflictResponse>
+                    {
+                        Success = true,
+
+                        Data =
+                            new AppointmentConflictResponse
+                            {
+                                Type = "BLOCK",
+                                HasConflict = true,
+
+                                Message =
+                                    $"Patient already has an appointment at " +
+                                    $"{exactMatch.AppointmentDateTime:dd MMM yyyy hh:mm tt}. " +
+                                    $"Duplicate booking is not allowed.",
+
+                                ConflictDetails =
+                                    new ConflictAppointmentDetails
+                                    {
+                                        TokenId =
+                                            exactMatch.Id,
+
+                                        TokenNumber =
+                                            exactMatch.TokenNumber,
+
+                                        AppointmentDateTime =
+                                            exactMatch
+                                                .AppointmentDateTime
+                                                ?? DateTime.Now,
+
+                                        DepartmentName =
+                                            exactMatch
+                                                .Department
+                                                ?.Name,
+
+                                        DoctorName =
+                                            exactMatch
+                                                .Doctor
+                                                ?.Name,
+
+                                        StatusName =
+                                            exactMatch
+                                                .Status
+                                                ?.Name
+                                    }
+                            }
+                    };
+                }
+
+
+                // =====================================
+                // CASE 2:
+                // Within 30 mins
+                // =====================================
+                var nearbyAppointment =
+                    appointments
+                        .FirstOrDefault(x =>
+
+                            Math.Abs(
+                                (
+                                    x.AppointmentDateTime
+                                        .Value
+                                    -
+                                    request
+                                        .AppointmentDateTime
+                                )
+                                .TotalMinutes
+                            ) <= 30
+                        );
+
+                if (nearbyAppointment != null)
+                {
+                    return new ApiResponse<AppointmentConflictResponse>
+                    {
+                        Success = true,
+
+                        Data =
+                            new AppointmentConflictResponse
+                            {
+                                Type =
+                                    "WARNING_30_MIN",
+
+                                HasConflict =
+                                    true,
+
+                                Message =
+                                    $"Patient already has an appointment nearby at " +
+                                    $"{nearbyAppointment.AppointmentDateTime:hh:mm tt}. " +
+                                    $"Do you want to reschedule it?",
+
+                                ConflictDetails =
+                                    new ConflictAppointmentDetails
+                                    {
+                                        TokenId =
+                                            nearbyAppointment.Id,
+
+                                        TokenNumber =
+                                            nearbyAppointment.TokenNumber
+                                    }
+                            }
+                    };
+                }
+
+
+                // =====================================
+                // CASE 3:
+                // Same Day
+                // =====================================
+                if (appointments.Any())
+                {
+                    var sameDay =
+                        appointments
+                            .First();
+
+                    return new ApiResponse<AppointmentConflictResponse>
+                    {
+                        Success = true,
+
+                        Data =
+                            new AppointmentConflictResponse
+                            {
+                                Type =
+                                    "WARNING_SAME_DAY",
+
+                                HasConflict =
+                                    true,
+
+                                Message =
+                                    "Patient already has an appointment on the selected date. Do you want to reschedule?",
+
+                                ConflictDetails =
+                                    new ConflictAppointmentDetails
+                                    {
+                                        TokenId =
+                                            sameDay.Id,
+
+                                        TokenNumber =
+                                            sameDay.TokenNumber
+                                    }
+                            }
+                    };
+                }
+
+
+                // =====================================
+                // CASE 4:
+                // No conflict
+                // =====================================
+                return new ApiResponse<AppointmentConflictResponse>
+                {
+                    Success = true,
+
+                    Data =
+                        new AppointmentConflictResponse
+                        {
+                            Type = "NONE",
+                            HasConflict = false
+                        }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<AppointmentConflictResponse>
+                {
+                    Success = false,
+                    Message = ex.Message
+                };
+            }
+        }
+
+    }
+}

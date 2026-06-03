@@ -1,0 +1,63 @@
+﻿using SmartClinic.Application.DTOs;
+using SmartClinic.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Application.Interfaces
+{
+    public interface ISystemAdminService
+    {
+        #region Users
+        Task<List<UserDto>> GetUsers();
+        Task<UserDto?> GetUserById(int id);
+        Task<ApiResponse<UserDto>> CreateUser(UserDto model);
+        Task<ApiResponse<UserDto>> UpdateUser(UserDto model);
+        Task<ApiResponse<bool>> DeleteUser(int id);
+        #endregion
+        #region Roles
+        Task<List<RolesDto>> GetRoles();
+        Task<RolesDto?> GetRoleById(int id);
+        Task<ApiResponse<RolesDto>> CreateRole(RolesDto model);
+        Task<ApiResponse<RolesDto>> UpdateRole(RolesDto model);
+        Task<ApiResponse<bool>> DeleteRole(int id);
+        #endregion
+        #region Departments
+        Task<List<DepartmentDto>> GetDepartments();
+        Task<ApiResponse<DepartmentDto>> CreateDepartment(DepartmentDto model);
+        Task<DepartmentDto?> GetDepartmentById(int id);
+        Task<ApiResponse<DepartmentDto>> UpdateDepartment(DepartmentDto model);
+        Task<ApiResponse<bool>> DeleteDepartment(int id);
+        #endregion
+        #region Doctors
+        Task<List<DoctorDto>> GetDoctors();
+        Task<ApiResponse<DoctorDto>> CreateDoctor(DoctorDto model);
+        Task<DoctorDto?> GetDoctorById(int id);
+        Task<ApiResponse<DoctorDto>> UpdateDoctor(DoctorDto model);
+        Task<ApiResponse<bool>> DeleteDoctor(int id);
+        Task<List<DoctorDto>> GetDoctorsByDepartmentAsync(int departmentId);
+        #endregion
+        #region Symptoms
+        Task<List<SymptomsDto>> GetSymptoms();
+        Task<ApiResponse<SymptomsDto>> CreateSymptom(SymptomsDto model);
+        Task<SymptomsDto?> GetSymptomById(int id);
+        Task<ApiResponse<SymptomsDto>> UpdateSymptom(SymptomsDto model);
+        Task<ApiResponse<bool>> DeleteSymptom(int id);
+        #endregion
+        #region Tokens
+        Task<List<TokenStatusDTO>> GetTokenStatuses();
+        Task<ApiResponse<TokenStatusDTO>> CreateTokenStatus(TokenStatusDTO model);
+        Task<TokenStatusDTO?> GetTokenStatusById(int id);
+        Task<ApiResponse<TokenStatusDTO>> UpdateTokenStatus(TokenStatusDTO model);
+        Task<ApiResponse<bool>> DeleteTokenStatus(int id);
+        #endregion
+        #region Priority configuration
+        Task<List<PriorityConfigDto>> GetPriorityConfigurations();
+        Task<PriorityConfigDto?> GetPriorityConfigurationById(int id);
+        Task<ApiResponse<PriorityConfigDto>> CreatePriorityConfiguration(PriorityConfigDto model);
+        Task<ApiResponse<PriorityConfigDto>> UpdatePriorityConfiguration(PriorityConfigDto model);
+        Task<ApiResponse<bool>> DeletePriorityConfiguration(int id);
+        Task<ApiResponse<PriorityCalculationResultDto>> CalculatePriorityAsync(string symptoms);
+        #endregion
+    }
+}

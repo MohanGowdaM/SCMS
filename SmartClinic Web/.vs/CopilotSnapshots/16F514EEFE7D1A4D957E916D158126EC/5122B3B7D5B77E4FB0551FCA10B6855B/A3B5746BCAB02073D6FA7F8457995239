@@ -1,0 +1,138 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using SmartClinic.Web.Filters;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace SmartClinic.Web.Controllers
+{
+    [RoleAuthorize("Admin", "Doctor")]
+    public class DoctorsController : Controller
+    {
+        private readonly HttpClient _httpClient;
+
+        public DoctorsController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient("SmartClinicAPI");
+        }
+        public IActionResult DoctorTerminal()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDoctorQueue()
+        {
+            try
+            {
+                // JWT Token
+                var token = HttpContext.Session.GetString("JWToken");
+                
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message ="Session expired"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+                
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                int doctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                // Send doctorId to API
+                var response = await _httpClient.GetAsync($"Doctors/GetDoctorQueue?doctorId={doctorId}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to load queue"
+                    });
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return Content(json,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateQueueStatus(
+    [FromBody] UpdateQueueRequest request)
+        {
+            try
+            {
+                var client = _httpClient.CreateClient();
+
+                var apiUrl =
+                    $"{_configuration["ApiSettings:BaseUrl"]}" +
+                    $"Doctors/UpdateQueueStatus";
+
+                var json =
+                    JsonConvert.SerializeObject(request);
+
+                var content =
+                    new StringContent(
+                        json,
+                        Encoding.UTF8,
+                        "application/json");
+
+                var response =
+                    await client.PostAsync(
+                        apiUrl,
+                        content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message =
+                            "Unable to connect API"
+                    });
+                }
+
+                var result =
+                    await response.Content
+                    .ReadAsStringAsync();
+
+                return Content(
+                    result,
+                    "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+    }
+}

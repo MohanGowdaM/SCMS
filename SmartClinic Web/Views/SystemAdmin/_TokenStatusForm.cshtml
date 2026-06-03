@@ -1,0 +1,29 @@
+@model SmartClinic.Web.Models.SystemAdmin.TokenStatusDto
+
+<div class="modal fade" id="tokenStatusModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tokenStatusModalTitle">Token Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="tokenStatusForm">
+                    <input type="hidden" id="TokenStatus_Id" />
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <input type="text" id="TokenStatus_Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea id="TokenStatus_Description" class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="tokenStatusSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

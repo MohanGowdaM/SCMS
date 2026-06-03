@@ -1,0 +1,234 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Application.Services
+{
+    public class DoctorService : IDoctorService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public DoctorService(ApplicationDbContext context)
+        {
+            _context = context;
+        }      
+
+
+        public async Task<DoctorQueueResponseDto> GetDoctorQueueAsync(int doctorId)
+        {
+            var doctor = await _context.Doctors
+                .FirstOrDefaultAsync(x => x.Id == doctorId);
+
+            if (doctor == null)
+                return null;
+
+            // Waiting Queue
+            var waitingQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Pending" && x.IsDeleted==false)
+                .OrderBy(x => x.CreatedAt)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                }).ToListAsync();
+
+            // Current Called Ticket
+            var currentTicket = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Called" && x.IsDeleted == false)
+                .OrderByDescending(x => x.CreatedAt)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .FirstOrDefaultAsync();
+
+            // Hold Queue
+            var holdQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Hold" && x.IsDeleted == false)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .ToListAsync();
+
+            // Skipped Queue
+            var skippedQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Skipped" && x.IsDeleted == false)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .ToListAsync();
+
+            // Served Count
+            var servedCount = await _context.Tokens
+                .Include(x => x.Status)
+                .CountAsync(x =>
+                    x.DoctorId == doctorId
+                    &&
+                    x.Status.Name == "Completed" && x.IsDeleted == false);
+
+            return new DoctorQueueResponseDto
+            {
+                DoctorName = doctor.Name,
+                TerminalName = doctor.RoomNumber ?? "Room 101",
+
+                TotalCount = waitingQueue.Count
+                           + skippedQueue.Count
+                           + holdQueue.Count,
+
+                ServedCount = servedCount,
+                WaitingCount = waitingQueue.Count,
+                MissedCount = skippedQueue.Count,
+
+                CurrentTicket = currentTicket,
+
+                NextQueue = waitingQueue
+                    .Take(3)
+                    .ToList(),
+
+                WaitingQueue = waitingQueue,
+                SkippedQueue = skippedQueue,
+                HoldQueue = holdQueue
+            };
+        }
+
+        public async Task<ApiResponse<DoctorQueueResponseDto>> UpdateQueueStatusAsync(UpdateQueueRequest request)
+        {
+            try
+            {
+                // Validate request
+                if (request == null || request.QueueId <= 0)
+                {
+                    return new ApiResponse<DoctorQueueResponseDto>
+                    {
+                        Success = false,
+                        Message = "Invalid queue request data"
+                    };
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Status))
+                {
+                    return new ApiResponse<DoctorQueueResponseDto>
+                    {
+                        Success = false,
+                        Message = "Status cannot be empty"
+                    };
+                }
+
+                // Find the token (queue item)
+                var token = await _context.Tokens
+                    .Include(x => x.Status)
+                    .FirstOrDefaultAsync(x => x.Id == request.QueueId);
+
+                if (token == null)
+                {
+                    return new ApiResponse<DoctorQueueResponseDto>
+                    {
+                        Success = false,
+                        Message = "Queue item not found"
+                    };
+                }
+
+                // Find the new status by name
+                var newStatus = await _context.TokenStatuses
+                    .FirstOrDefaultAsync(x =>
+                        x.Name.ToLower() == request.Status.ToLower());
+
+                if (newStatus == null)
+                {
+                    return new ApiResponse<DoctorQueueResponseDto>
+                    {
+                        Success = false,
+                        Message = $"Status '{request.Status}' not found"
+                    };
+                }
+
+                // Update token status
+                token.StatusId = newStatus.Id;
+
+                // Set status-specific timestamps
+                if (request.Status.ToLower() == "called")
+                {
+                    token.CalledAt = request.UpdatedDateTime;
+                }
+                else if (request.Status.ToLower() == "completed")
+                {
+                    token.CompletedAt = request.UpdatedDateTime;
+                }
+
+                _context.Tokens.Update(token);
+                await _context.SaveChangesAsync();
+
+                // Fetch updated queue data for the doctor
+                var doctor = await _context.Doctors
+                    .FirstOrDefaultAsync(x => x.Id == request.DoctorId);
+
+                if (doctor == null)
+                {
+                    return new ApiResponse<DoctorQueueResponseDto>
+                    {
+                        Success = true,
+                        Message = $"Queue status updated to '{request.Status}' successfully",
+                        Data = null
+                    };
+                }
+
+                // Get updated queue data
+                var updatedQueue = await GetDoctorQueueAsync(request.DoctorId);
+
+                return new ApiResponse<DoctorQueueResponseDto>
+                {
+                    Success = true,
+                    Message = $"Queue status updated to '{request.Status}' successfully",
+                    Data = updatedQueue
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<DoctorQueueResponseDto>
+                {
+                    Success = false,
+                    Message = $"Error updating queue status: {ex.Message}"
+                };
+            }
+        }

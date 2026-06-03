@@ -1,0 +1,254 @@
+﻿<div class="modal fade"
+     id="viewPatientModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-xl custom-patient-modal">
+
+        <div class="modal-content patient-modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header patient-modal-header">
+
+                <div>
+
+                    <h4 class="modal-title mb-1">
+
+                        <i class="bi bi-eye me-2"></i>
+
+                        Patient Details
+
+                    </h4>
+
+                    <small class="patient-modal-subtitle">
+
+                        View patient information
+
+                    </small>
+
+                </div>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body p-4">
+
+                <div class="row g-4">
+
+                    <!-- Patient ID -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Patient ID
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewUhid">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Patient Name -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Patient Name
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewName">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Age -->
+                    <div class="col-md-3">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Age
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewAge">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-3">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Gender
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewGender">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Date of Birth
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewDob">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Mobile Number
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewMobile">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Symptoms -->
+                    <div class="col-md-12">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Symptoms
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewSymptoms">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Created Date -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Created Date
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewCreatedDate">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Created By -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Created By
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewCreatedBy">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Updated Date -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Updated Date
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewUpdatedDate">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Updated By -->
+                    <div class="col-md-6">
+
+                        <div class="info-group">
+
+                            <label class="form-label fw-semibold text-muted">
+
+                                Updated By
+
+                            </label>
+
+                            <p class="fs-6 mb-0" id="viewUpdatedBy">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer patient-modal-footer">
+
+                <button type="button"
+                        class="btn btn-primary px-4"
+                        id="btnCloseViewPatient"
+                        data-bs-dismiss="modal">
+
+                    <i class="bi bi-x-circle me-1"></i>
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "5OUqrHf6wEw=",
+  "success": true,
+  "projectFilePath": "D:\\SMARTClinic\\03.06.2026\\SmartClinic API\\SmartClinic.Domain\\SmartClinic.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.7\\microsoft.entityframeworkcore.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.7\\microsoft.entityframeworkcore.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.7\\microsoft.entityframeworkcore.analyzers.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.7\\microsoft.extensions.caching.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.7\\microsoft.extensions.caching.memory.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.7\\microsoft.extensions.dependencyinjection.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.7\\microsoft.extensions.dependencyinjection.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.logging\\10.0.7\\microsoft.extensions.logging.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.7\\microsoft.extensions.logging.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.options\\10.0.7\\microsoft.extensions.options.10.0.7.nupkg.sha512",
+    "C:\\Users\\Att\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.7\\microsoft.extensions.primitives.10.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

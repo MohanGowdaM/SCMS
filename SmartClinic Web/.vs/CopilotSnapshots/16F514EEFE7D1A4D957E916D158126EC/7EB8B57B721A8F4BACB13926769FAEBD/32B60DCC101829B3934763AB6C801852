@@ -1,0 +1,173 @@
+﻿$(document).ready(function () {
+    // Check if DataTable already exists
+    if ($.fn.DataTable.isDataTable('#patientsTable')) {
+        $('#patientsTable').DataTable().destroy();
+    }
+
+    // Check actual data rows
+    var hasData =
+        $('#patientsTable tbody tr')
+            .find('td[colspan]')
+            .length === 0;
+
+    if (hasData) {
+
+        $('#patientsTable').DataTable({
+
+            pageLength: 10,
+            ordering: true,
+            searching: true,
+            paging: true,
+            info: true,
+            responsive: true,
+            autoWidth: false,
+            scrollX: false,
+
+            columnDefs: [
+                {
+                    targets: 0,
+                    orderable: false,
+                    searchable: false,
+
+                    render: function (
+                        data,
+                        type,
+                        row,
+                        meta) {
+
+                        return meta.row +
+                            meta.settings._iDisplayStart + 1;
+                    }
+                }
+            ],
+
+            language: {
+                search: "",
+                searchPlaceholder:
+                    "Search patients...",
+                lengthMenu:
+                    "_MENU_ entries per page"
+            },
+
+            dom:
+                '<"row mb-3 align-items-center"' +
+                '<"col-md-6"l>' +
+                '<"col-md-6 text-end"f>>' +
+                'rt' +
+                '<"row mt-3 align-items-center"' +
+                '<"col-md-6"i>' +
+                '<"col-md-6 d-flex justify-content-end"p>>',
+
+            initComplete: function () {
+
+                $('.dataTables_filter input')
+                    .addClass('form-control')
+                    .css({
+                        width: '260px',
+                        display: 'inline-block'
+                    });
+
+                $('.dataTables_length select')
+                    .addClass('form-select')
+                    .css({
+                        width: '80px',
+                        display: 'inline-block'
+                    });
+            }
+        });
+    }
+
+
+    // Add Patient button click
+    $("#btnAddPatient").click(function () {
+        $.get(
+            "/Patients/AddPatientModal",
+            function (response) {
+                $("#patientModalContainer").html(response);
+                $("#addPatientModal").modal("show");
+            }
+        );
+    });
+
+    // Save Patient
+    $(document).on("click", "#btnSavePatient", function () {
+        let patient = {
+            Name: $("#patientName").val(),
+            Age: $("#age").val(),
+            Gender: $("#gender").val(),
+            MobileNumber: $("#mobile").val(),
+            Symptoms: $("#symptoms").val()
+        };
+
+        // Validation
+        if (patient.Name === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Validation Error',
+                text: 'Please enter patient name',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        if (patient.Gender === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Validation Error',
+                text: 'Please select gender',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "/Patients/SavePatient",
+            type: "POST",
+            data: patient,
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: response.message,
+                        confirmButtonText: 'OK',
+                        timer: 2000,
+                        timerProgressBar: true
+                    }).then(() => {
+                        $("#addPatientModal").modal("hide");
+                        $("#patientForm")[0].reset();
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: response.message,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Something went wrong while saving patient',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+
+    // Cancel Button
+    $(document).on("click", "#btnCancelPatient", function () {
+        $("#patientForm")[0].reset();
+        $("#addPatientModal").modal("hide");
+    });
+
+    // View Patient button click
+    $(document).on("click", ".btn-info", function () {
+        const patientId = $(this).data("patient-id");
+        console.log("View patient with ID: " + patientId);
+        // Add your view patient logic here
+    });
+});

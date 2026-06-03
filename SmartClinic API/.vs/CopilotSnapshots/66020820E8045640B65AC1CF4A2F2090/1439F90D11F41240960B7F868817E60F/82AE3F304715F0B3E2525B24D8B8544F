@@ -1,0 +1,126 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using System.Threading.Tasks;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AppointmentController : ControllerBase
+    {
+        private readonly IAppointmentService _appointmentService;
+
+        public AppointmentController(IAppointmentService appointmentService)
+        {
+            _appointmentService = appointmentService;
+        }
+
+
+        [HttpGet("GetAllAppointments")]
+        public async Task<IActionResult> GetAllAppointments()
+        {
+            try
+            {
+                var result = await _appointmentService.GetAllAppointmentsAsync();
+
+                if (!result.Success)
+                {
+                    return BadRequest(result);
+                }
+
+                return Ok(result);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = $"Internal server error: {ex.Message}"
+                });
+            }
+        }
+
+        
+        [HttpPost("UpdateStatus")]
+        public async Task<IActionResult> UpdateStatus([FromBody] UpdateStatusRequest request)
+        {
+            try
+            {
+                var result = await _appointmentService.UpdateStatusAsync(request);
+
+                if (!result.Success)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = result.Message
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = result.Message
+                });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Internal server error: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpPost("CheckAppointmentConflict")]
+        public async Task<IActionResult> CheckAppointmentConflict([FromBody] CheckAppointmentConflictRequest request)
+        {
+            try
+            {
+                if (request == null)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Request body cannot be empty"
+                    });
+                }
+
+                var result = await _appointmentService.CheckAppointmentConflictAsync(request);
+
+                if (!result.Success)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = result.Message
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    type = result.Data?.Type,
+                    message = result.Data?.Message,
+                    hasConflict = result.Data?.HasConflict ?? false,
+                    conflictDetails = result.Data?.ConflictDetails
+                });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Internal server error: {ex.Message}"
+                });
+            }
+        }
+
+
+    }
+}

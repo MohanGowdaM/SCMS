@@ -1,0 +1,29 @@
+@model SmartClinic.Web.Models.SystemAdmin.SymptomDto
+
+<div class="modal fade" id="symptomModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="symptomModalTitle">Symptom</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="symptomForm">
+                    <input type="hidden" id="Symptom_Id" />
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" id="Symptom_Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Weight</label>
+                        <textarea id="Symptom_Weight" class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="symptomSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

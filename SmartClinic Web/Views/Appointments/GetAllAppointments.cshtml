@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Appointments & Tokens";
+}
+
+<div class="page-header mb-4">
+
+    <div>
+
+        <h4 class="fw-bold mb-1">
+            Appointment Management
+        </h4>
+
+        <nav aria-label="breadcrumb">
+
+            <ol class="breadcrumb mb-0">
+
+                <li class="breadcrumb-item">
+
+                    <a href="#">
+                        Smart Clinic
+                    </a>
+
+                </li>
+
+                <li class="breadcrumb-item active">
+
+                    Appointments & Tokens
+
+                </li>
+
+            </ol>
+
+        </nav>
+
+    </div>
+
+    <div>
+
+        <button class="btn btn-primary btn-generate-token"
+                id="btnGenerateToken">
+
+            <i class="bi bi-plus-lg me-2"></i>
+
+            Generate Token
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card border-0 shadow-sm">
+
+    <div class="card-header bg-white py-3">
+
+        <h5 class="mb-0 fw-bold">
+            Appointment List
+        </h5>
+
+    </div>
+
+    <div class="card-body">        
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle" id="appointmentsTable" style="width:100%">
+
+                <thead class="table-light">
+
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Token No</th>
+                        <th>UHID</th>
+                        <th>Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Department</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Created Time</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="tokenModalContainer"></div>
+
+@section Scripts {
+<script src="~/js/appointments.js" asp-append-version="true"></script>
+}

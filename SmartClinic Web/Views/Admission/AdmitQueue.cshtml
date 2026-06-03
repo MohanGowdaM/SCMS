@@ -1,0 +1,63 @@
+﻿<div class="card shadow-sm">
+
+    <div class="card-header">
+
+        <h4>
+
+            <i class="fa-solid fa-bed-pulse"></i>
+
+            Admit Queue
+
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered"
+               id="tblAdmitQueue"
+               style="width:100%">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Token No
+                    </th>
+
+                    <th>
+                        Patient Name
+                    </th>
+
+                    <th>
+                        Ward Type
+                    </th>
+
+                    <th>
+                        Reason
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<partial name="_AssignBedModal" />
+
+@section Scripts {
+
+    <script src="~/js/admission.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,22 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=DESKTOP-ES6N859;Initial Catalog=SmartClinicDB;Persist Security Info=True;User ID=sa;Password=P@55w0rd;Trust Server Certificate=True;"
+  },
+  "JwtSettings": {
+    "Key": "SmartClinicSuperSecretKey2026@123456",
+
+    "Issuer": "SmartClinicAPI",
+
+    "Audience": "SmartClinicWEB",
+
+    "DurationInMinutes": 120
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+
+  "AllowedHosts": "*"
+}

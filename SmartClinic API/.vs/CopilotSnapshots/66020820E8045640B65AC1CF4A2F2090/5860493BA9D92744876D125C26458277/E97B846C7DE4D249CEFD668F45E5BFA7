@@ -1,0 +1,129 @@
+﻿using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Domain.Entities;
+using SmartClinic.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class PatientService : IPatientService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public PatientService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<bool> AddPatientAsync(PatientDto dto)
+        {
+            try
+            {
+                var patient = new Patient
+                {
+                    Uhid = GenerateUHID(),
+                    Name = dto.Name,                   
+                    Gender = dto.Gender,
+                    MobileNumber = dto.MobileNumber,
+                    Age = dto.Age,
+                    Symptoms = dto.Symptoms,
+                    IsDeleted = false,
+                    CreatedDateTime = DateTime.Now,
+                    CreatedBy = "System"
+                };
+
+                await _context.Patients.AddAsync(patient);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<PatientDto> GetPatientDetailsAsync(int patientId)
+        {
+            try
+            {
+                var patient = await _context.Patients.FindAsync(patientId);
+
+                if (patient == null || patient.IsDeleted)
+                {
+                    return null;
+                }
+
+                var patientDto = new PatientDto
+                {
+                    Id = patient.Id,
+                    Name = patient.Name,
+                    Dob = patient.Dob,
+                    Gender = patient.Gender,
+                    MobileNumber = patient.MobileNumber,
+                    Age = patient.Age,
+                    Symptoms = patient.Symptoms,
+                    Uhid = patient.Uhid,
+                    CreatedDateTime = patient.CreatedDateTime,
+                    CreatedBy = patient.CreatedBy,
+                    UpdatedDateTime = patient.UpdatedDateTime,
+                    UpdatedBy = patient.UpdatedBy
+                };
+
+                return patientDto;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<PatientDto>> GetAllPatientDetailsAsync()
+        {
+            try
+            {
+                var patients = await _context.Patients
+                    .Where(p => !p.IsDeleted)
+                    .ToListAsync();
+
+                var patientDtos = patients.Select(patient => new PatientDto
+                {
+                    Id = patient.Id,
+                    Name = patient.Name,
+                    Dob = patient.Dob,
+                    Gender = patient.Gender,
+                    MobileNumber = patient.MobileNumber,
+                    Age = patient.Age,
+                    Symptoms = patient.Symptoms,
+                    Uhid = patient.Uhid,
+                    CreatedDateTime = patient.CreatedDateTime,
+                    CreatedBy = patient.CreatedBy,
+                    UpdatedDateTime = patient.UpdatedDateTime,
+                    UpdatedBy = patient.UpdatedBy
+                }).ToList();
+
+                return patientDtos;
+            }
+            catch
+            {
+                return new List<PatientDto>();
+            }
+        }
+
+        private string GenerateUHID()
+        {
+            var year = DateTime.Now.ToString("yy");
+
+            var month = DateTime.Now.ToString("MM");
+
+            var patientCount = _context.Patients.Count() + 1;
+
+            return $"SC{year}{month}{patientCount:D4}";
+        }
+    }
+}
+

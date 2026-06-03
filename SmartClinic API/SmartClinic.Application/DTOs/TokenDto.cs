@@ -1,0 +1,31 @@
+﻿using SmartClinic.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+
+namespace SmartClinic.Application.DTOs
+{
+    public class TokenDto
+    {        
+        public int Id { get; set; }       
+        public string? TokenNumber { get; set; }
+        public int? PatientId { get; set; }
+        public int? DepartmentId { get; set; }
+        public int? DoctorId { get; set; }
+        public int? Priority { get; set; }
+        public int? StatusId { get; set; }       
+        public DateTime? CreatedAt { get; set; }       
+        public DateTime? CalledAt { get; set; }        
+        public DateTime? CompletedAt { get; set; }
+        public DateTime? AppointmentDateTime { get; set; }
+
+        public bool IsDeleted { get; set; }
+        public virtual DepartmentDto? DepartmentDto { get; set; }       
+        public virtual DoctorDto? DoctorDto { get; set; }       
+        public virtual PatientDto? PatientDto { get; set; }       
+        public virtual TokenStatusDTO? TokenStatusDto { get; set; }        
+        public virtual ICollection<TokenSymptomDto> TokenSymptomsDto { get; set; } = new List<TokenSymptomDto>();
+    }
+}

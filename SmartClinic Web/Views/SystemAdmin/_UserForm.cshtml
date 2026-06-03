@@ -1,0 +1,47 @@
+@model SmartClinic.Web.Models.SystemAdmin.UserDto
+
+<div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalTitle">User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="row">
+                        <input type="hidden" id="User_Id" />
+                        <div class="col-md-6">
+                            <label class="form-label">Username</label>
+                            <input type="text" id="User_UserName" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="User_Email" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Contact No</label>
+                            <input type="text" id="User_ContactNo" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Password</label>
+                            <input type="password" id="User_Password" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Role</label>
+                            <select id="User_RoleId" class="form-select"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Department</label>
+                            <select id="User_DepartmentId" class="form-select"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="userSaveBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

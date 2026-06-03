@@ -1,0 +1,48 @@
+D:\SMARTClinic.API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.deps.json
+D:\SMARTClinic.API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic.API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.AssemblyReference.cache
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfoInputs.cache
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfo.cs
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.CoreCompileInputs.cache
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\refint\SmartClinic.Domain.dll
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic.API\SmartClinic.Domain\obj\Debug\net10.0\ref\SmartClinic.Domain.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.deps.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.AssemblyReference.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfoInputs.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfo.cs
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.CoreCompileInputs.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\refint\SmartClinic.Domain.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\ref\SmartClinic.Domain.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.deps.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.AssemblyReference.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfoInputs.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfo.cs
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.CoreCompileInputs.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\refint\SmartClinic.Domain.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\ref\SmartClinic.Domain.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.deps.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.AssemblyReference.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfoInputs.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.AssemblyInfo.cs
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.csproj.CoreCompileInputs.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\refint\SmartClinic.Domain.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.Domain\obj\Debug\net10.0\ref\SmartClinic.Domain.dll

@@ -1,0 +1,646 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using SmartClinic.Web.Filters;
+using SmartClinic.Web.Models.Appointment;
+using SmartClinic.Web.Models.Doctor;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace SmartClinic.Web.Controllers
+{
+    [RoleAuthorize("Admin", "Doctor")]
+    public class DoctorsController : Controller
+    {
+        private readonly HttpClient _httpClient;
+
+        public DoctorsController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient("SmartClinicAPI");
+        }
+        public IActionResult DoctorTerminal()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDoctorQueue()
+        {
+            try
+            {
+                // JWT Token
+                var token = HttpContext.Session.GetString("JWToken");
+                
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message ="Session expired"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+                
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                int doctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                // Send doctorId to API
+                var response = await _httpClient.GetAsync($"Doctors/GetDoctorQueue?doctorId={doctorId}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to load queue"
+                    });
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return Content(json,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateQueueStatus([FromBody] UpdateQueueRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request data
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid queue request data"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);                
+
+                // Add JWT Token to Authorization Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Serialize request to JSON
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                // Call API to update queue status
+                var response = await _httpClient.PostAsync("Doctors/UpdateQueueStatus", content);
+
+                
+                // Read API response
+                var result = await response.Content.ReadAsStringAsync();
+
+                // Return the API response
+                return Content(result, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error updating queue status: {ex.Message}"
+                });
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult ConsultationModal()
+        {
+            return PartialView("_ConsultationModal");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>SaveConsultation([FromBody] SaveConsultationRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request data
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid queue request data"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token to Authorization Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Serialize request to JSON
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response =  await _httpClient.PostAsJsonAsync("Doctors/SaveConsultation",request);
+
+                var result = await response.Content.ReadAsStringAsync();
+
+                return Content(result,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+                        message = ex.Message
+                    });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>SendToLab([FromBody] SendToLabRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request data
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid queue request data"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token to Authorization Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Serialize request to JSON
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await _httpClient.PostAsJsonAsync("Doctors/SendToLab",request);
+
+                var result = await response.Content.ReadAsStringAsync();
+                
+                return Content(result,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+                        message = ex.Message
+                    });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendToScan([FromBody] SendToScanRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid scan request data"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue(
+                        "Bearer",
+                        token);
+
+                // Serialize request
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(
+                    json,
+                    Encoding.UTF8,
+                    "application/json");
+
+                // Call API
+                var response = await _httpClient.PostAsync(
+                    "Doctors/SendToScan",
+                    content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to send patient to scan"
+                    });
+                }
+
+                // Read API Response
+                var result =
+                    await response.Content.ReadAsStringAsync();
+
+                // Return API Response
+                return Content(
+                    result,
+                    "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendToBilling([FromBody] SendToBillingRequest request)
+        {
+            try
+            {
+                // Get JWT Token
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate Request
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid billing request"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer",token);
+
+                // Serialize Request
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(json,Encoding.UTF8,"application/json");
+
+                // Call API
+                var response = await _httpClient.PostAsync("Doctors/SendToBilling", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to send patient to billing"
+                    });
+                }
+
+                // Read API Response
+                var result = await response.Content.ReadAsStringAsync();
+
+                return Content(result,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendToAdmit([FromBody] SendToAdmitRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request data
+                if (request == null || request.TokenId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid admission request data"
+                    });
+                }
+
+                // Get DoctorId from Session
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor information not found"
+                    });
+                }
+
+                // Set DoctorId from session claim
+                request.DoctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token to Authorization Header
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                // Call API to send patient to admission
+                var response = await _httpClient.PostAsJsonAsync("Doctors/SendToAdmit", request);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to send patient to admission"
+                    });
+                }
+
+                // Read API response
+                var result = await response.Content.ReadAsStringAsync();
+
+                // Return the API response
+                return Content(result, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error sending patient to admission: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult>GetMedicines()
+        {
+            try
+            {
+                var token = HttpContext.Session.GetString("JWToken");
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                var response = await _httpClient.GetAsync("Doctors/GetMedicines");
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>AddMedicine([FromBody] AddMedicineRequest request)
+        {
+            try
+            {
+                var token = HttpContext.Session.GetString("JWToken");
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                var response = await _httpClient.PostAsJsonAsync("Doctors/AddMedicine",request);
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return Content(json,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult>GetLabTests()
+        {
+            try
+            {
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(
+                        new
+                        {
+                            success = false,
+
+                            message = "Session expired"
+                        });
+                }
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                var response = await _httpClient.GetAsync("Doctors/GetLabTests");
+
+                var result = await response.Content.ReadAsStringAsync();
+
+                return Content(result,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+
+                        message =ex.Message
+                    });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult>GetScanTests()
+        {
+            try
+            {
+                var token = HttpContext.Session.GetString("JWToken");
+
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                var response = await _httpClient.GetAsync("Doctors/GetScanTests");
+
+                var result = await response.Content.ReadAsStringAsync();
+
+                return Content(result,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(
+                    new
+                    {
+                        success = false,
+
+                        message = ex.Message
+                    });
+            }
+        }
+    }
+}

@@ -1,0 +1,225 @@
+﻿<div class="modal fade"
+     id="addPatientModal"
+     tabindex="-1"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable custom-modal">
+
+        <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <!-- Modal Header -->
+            <div class="modal-header patient-modal-header">
+
+                <div>
+
+                    <h4 class="modal-title mb-1">
+
+                        <i class="bi bi-person-plus-fill me-2"></i>
+
+                        Add New Patient
+
+                    </h4>
+
+                    <small class="patient-modal-subtitle">
+
+                        Enter patient information
+
+                    </small>
+
+                </div>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body p-4">
+
+                <form id="patientForm">
+
+                    <div class="row g-4">
+
+                        <!-- Patient Name -->
+                        <div class="col-md-6">
+
+                            <label class="form-label fw-semibold">
+
+                                Patient Name
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-person"></i>
+
+                                </span>
+
+                                <input type="text"
+                                       id="patientName"
+                                       name="PatientName"
+                                       class="form-control"
+                                       placeholder="Enter patient name" />
+
+                            </div>
+
+                        </div>
+
+                        <!-- Age -->
+                        <div class="col-md-3">
+
+                            <label class="form-label fw-semibold">
+
+                                Age
+
+                            </label>
+
+                            <input type="number"
+                                   id="age"
+                                   name="Age"
+                                   class="form-control"
+                                   placeholder="Enter age" />
+
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="col-md-3">
+
+                            <label class="form-label fw-semibold">
+
+                                Gender
+
+                            </label>
+
+                            <select id="gender"
+                                    name="Gender"
+                                    class="form-select">
+
+                                <option value="">
+                                    Select Gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="col-md-6">
+
+                            <label class="form-label fw-semibold">Date of Birth</label>
+
+                            <div class="input-group"><span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+
+                                <input type="date" id="dob" name="Dob" class="form-control" />
+
+                            </div>
+
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="col-md-6">
+
+                            <label class="form-label fw-semibold">
+
+                                Mobile Number
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-telephone"></i>
+
+                                </span>
+
+                                <input type="text"
+                                       id="mobile"
+                                       name="Mobile"
+                                       class="form-control"
+                                       placeholder="Enter mobile number" />
+
+                            </div>
+
+                        </div>
+
+                        <!-- Email -->
+                       <div class="col-md-6">
+
+                            <label class="form-label fw-semibold">
+
+                                Email
+
+                            </label>
+
+                            <input type="text"
+                                   id="email"
+                                   name="Email"
+                                   class="form-control"
+                                   placeholder="Enter Email" />
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer patient-modal-footer">
+
+                <button type="button"
+                        class="btn btn-outline-secondary px-4"
+                        id="btnCancelPatient"
+                        data-bs-dismiss="modal">
+
+                    <i class="bi bi-x-circle me-1"></i>
+
+                    Cancel
+
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary px-4"
+                        id="btnSavePatient">
+
+                    <i class="bi bi-check-circle me-1"></i>
+
+                    Save Patient
+
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary px-4"
+                        id="btnSavePatientAndBookApp">
+
+                    <i class="bi bi-check-circle me-1"></i>
+
+                    Save Patient & Book Appointment
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+

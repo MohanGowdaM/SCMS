@@ -1,0 +1,140 @@
+﻿using System;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class EmailService : IEmailService
+    {
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<EmailService> _logger;
+
+        public EmailService(IConfiguration configuration, ILogger<EmailService> logger)
+        {
+            _configuration = configuration;
+            _logger = logger;
+        }
+
+        public async Task<bool> SendAppointmentConfirmationAsync(EmailRequest request)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(request.ToEmail))
+                {
+                    _logger.LogWarning("Email notification skipped: Patient email is empty");
+                    return false;
+                }
+
+                var smtpHost = _configuration["EmailSettings:SmtpHost"];
+                var smtpPort = int.Parse(_configuration["EmailSettings:SmtpPort"] ?? "587");
+                var smtpUsername = _configuration["EmailSettings:SmtpUsername"];
+                var smtpPassword = _configuration["EmailSettings:SmtpPassword"];
+                var fromEmail = _configuration["EmailSettings:FromEmail"];
+                var fromName = _configuration["EmailSettings:FromName"] ?? "SmartClinic";
+
+                if (string.IsNullOrWhiteSpace(smtpHost) || string.IsNullOrWhiteSpace(fromEmail))
+                {
+                    _logger.LogWarning("Email service not configured properly. Skipping email notification.");
+                    return false;
+                }
+
+                using (var client = new SmtpClient(smtpHost, smtpPort))
+                {
+                    client.EnableSsl = true;
+
+                    if (!string.IsNullOrWhiteSpace(smtpUsername) && !string.IsNullOrWhiteSpace(smtpPassword))
+                    {
+                        client.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                    }
+
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress(fromEmail, fromName),
+                        Subject = "Appointment Confirmation - SmartClinic",
+                        Body = GenerateEmailBody(request),
+                        IsBodyHtml = true
+                    };
+
+                    mailMessage.To.Add(request.ToEmail);
+
+                    await client.SendMailAsync(mailMessage);
+
+                    _logger.LogInformation($"Appointment confirmation email sent successfully to {request.ToEmail} for token {request.TokenNumber}");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to send appointment confirmation email to {request?.ToEmail}: {ex.Message}");
+                return false;
+            }
+        }
+
+        private string GenerateEmailBody(EmailRequest request)
+        {
+            return $@"
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: Arial, sans-serif; color: #333; }}
+        .container {{ max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }}
+        .header {{ background-color: #4CAF50; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }}
+        .content {{ padding: 20px; }}
+        .details {{ background-color: #f9f9f9; padding: 15px; border-left: 4px solid #4CAF50; margin: 15px 0; }}
+        .detail-row {{ margin: 10px 0; }}
+        .label {{ font-weight: bold; color: #4CAF50; }}
+        .footer {{ text-align: center; color: #666; font-size: 12px; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px; }}
+        .button {{ display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 15px; }}
+    </style>
+</head>
+<body>
+    <div class=""container"">
+        <div class=""header"">
+            <h1>Appointment Confirmation</h1>
+        </div>
+
+        <div class=""content"">
+            <p>Dear <strong>{request.PatientName}</strong>,</p>
+
+            <p>Your appointment has been successfully created with SmartClinic. Below are your appointment details:</p>
+
+            <div class=""details"">
+                <div class=""detail-row"">
+                    <span class=""label"">Token Number:</span> <strong>{request.TokenNumber}</strong>
+                </div>
+                <div class=""detail-row"">
+                    <span class=""label"">Doctor:</span> {request.DoctorName}
+                </div>
+                <div class=""detail-row"">
+                    <span class=""label"">Department:</span> {request.DepartmentName}
+                </div>
+                <div class=""detail-row"">
+                    <span class=""label"">Appointment Date:</span> {request.AppointmentDate:MMMM dd, yyyy}
+                </div>
+                {(!string.IsNullOrWhiteSpace(request.PriorityLevel) ? $@"<div class=""detail-row""><span class=""label"">Priority:</span> {request.PriorityLevel}</div>" : "")}
+                {(!string.IsNullOrWhiteSpace(request.Symptoms) ? $@"<div class=""detail-row""><span class=""label"">Symptoms:</span> {request.Symptoms}</div>" : "")}
+            </div>
+
+            <p>Please arrive a few minutes earlier on your appointment date. If you need to reschedule or cancel your appointment, please contact us as soon as possible.</p>
+
+            <p>Thank you for choosing SmartClinic!</p>
+
+            <p>Best regards,<br><strong>SmartClinic Team</strong></p>
+        </div>
+
+        <div class=""footer"">
+            <p>This is an automated email. Please do not reply to this message.</p>
+        </div>
+    </div>
+</body>
+</html>
+";
+        }
+    }
+}

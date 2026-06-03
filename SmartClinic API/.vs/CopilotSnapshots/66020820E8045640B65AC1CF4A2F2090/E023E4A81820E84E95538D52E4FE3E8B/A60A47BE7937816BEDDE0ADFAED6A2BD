@@ -1,0 +1,136 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Application.Services
+{
+    public class DoctorService : IDoctorService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public DoctorService(ApplicationDbContext context)
+        {
+            _context = context;
+        }      
+
+
+        public async Task<DoctorQueueResponseDto> GetDoctorQueueAsync(int doctorId)
+        {
+            var doctor = await _context.Doctors
+                .FirstOrDefaultAsync(x => x.Id == doctorId);
+
+            if (doctor == null)
+                return null;
+
+            // Waiting Queue
+            var waitingQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Pending" && x.IsDeleted==false)
+                .OrderBy(x => x.CreatedAt)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                }).ToListAsync();
+
+            // Current Called Ticket
+            var currentTicket = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Called" && x.IsDeleted == false)
+                .OrderByDescending(x => x.CreatedAt)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .FirstOrDefaultAsync();
+
+            // Hold Queue
+            var holdQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Hold" && x.IsDeleted == false)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .ToListAsync();
+
+            // Skipped Queue
+            var skippedQueue = await _context.Tokens
+                .Include(x => x.Patient)
+                .Include(x => x.Status)
+                .Where(x => x.DoctorId == doctorId
+                         && x.Status.Name == "Skipped" && x.IsDeleted == false)
+                .Select(x => new QueuePatientDto
+                {
+                    Id = x.Id,
+                    TokenNumber = x.TokenNumber,
+                    PatientName = x.Patient.Name,
+                    PriorityName = _context.PriorityConfigs
+                        .Where(p => p.Id == x.Id)
+                        .Select(p => p.Name)
+                        .FirstOrDefault()
+                })
+                .ToListAsync();
+
+            // Served Count
+            var servedCount = await _context.Tokens
+                .Include(x => x.Status)
+                .CountAsync(x =>
+                    x.DoctorId == doctorId
+                    &&
+                    x.Status.Name == "Completed" && x.IsDeleted == false);
+
+            return new DoctorQueueResponseDto
+            {
+                DoctorName = doctor.Name,
+                TerminalName = doctor.RoomNumber ?? "Room 101",
+
+                TotalCount = waitingQueue.Count
+                           + skippedQueue.Count
+                           + holdQueue.Count,
+
+                ServedCount = servedCount,
+                WaitingCount = waitingQueue.Count,
+                MissedCount = skippedQueue.Count,
+
+                CurrentTicket = currentTicket,
+
+                NextQueue = waitingQueue
+                    .Take(3)
+                    .ToList(),
+
+                WaitingQueue = waitingQueue,
+                SkippedQueue = skippedQueue,
+                HoldQueue = holdQueue
+            };
+        }
+
+    }
+}

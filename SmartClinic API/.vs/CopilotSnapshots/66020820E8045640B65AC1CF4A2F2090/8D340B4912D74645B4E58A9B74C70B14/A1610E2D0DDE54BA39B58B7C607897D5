@@ -1,0 +1,205 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class LabService : ILabService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public LabService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<List<LabQueueDto>>GetLabQueueAsync()
+        {
+            return await _context
+                .PatientLabRequests
+                .Where(x =>
+                    x.IsCompleted == false
+                )
+                .Select(x =>
+                    new LabQueueDto
+                    {
+                        Id = x.Id,
+
+                        TokenId =
+                            x.TokenId,
+
+                        TokenNumber =
+                            x.Token.TokenNumber,
+
+                        PatientName =
+                            x.Token.Patient.Name,
+
+                        LabTests =
+                            x.LabTestName,
+
+                        Notes =
+                            x.Notes
+                    })
+                .ToListAsync();
+        }
+
+        public async Task<ApiResponse<CompleteLabTestResponse>> CompleteLabTestAsync(CompleteLabTestRequest request)
+        {
+            try
+            {
+                // ====================================
+                // Input Validation
+                // ====================================
+                if (request == null)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Request cannot be null"
+                    };
+                }
+
+                if (request.Id <= 0)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Invalid lab request ID"
+                    };
+                }
+
+                if (request.TokenId <= 0)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Invalid token ID"
+                    };
+                }
+
+                // ====================================
+                // Fetch Lab Request with Related Data
+                // ====================================
+                var labRequest = await _context
+                    .PatientLabRequests
+                    .Include(x => x.Token)
+                    .Include(x => x.Doctor)
+                    .FirstOrDefaultAsync(x => x.Id == request.Id);
+
+                if (labRequest == null)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Lab request not found"
+                    };
+                }
+
+                // ====================================
+                // Fetch Token with Related Data
+                // ====================================
+                var token = await _context.Tokens
+                    .Include(x => x.Status)
+                    .FirstOrDefaultAsync(x => x.Id == request.TokenId);
+
+                if (token == null)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Token not found"
+                    };
+                }
+
+                // ====================================
+                // Verify Token Matches Lab Request
+                // ====================================
+                if (labRequest.TokenId != token.Id)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Lab request and token do not match"
+                    };
+                }
+
+                // ====================================
+                // Check if Already Completed
+                // ====================================
+                if (labRequest.IsCompleted)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "This lab test has already been completed"
+                    };
+                }
+
+                // ====================================
+                // Get Completed Status ID
+                // ====================================
+                var completedStatus = await _context.TokenStatuses
+                    .FirstOrDefaultAsync(x => x.Name.ToLower() == "completed");
+
+                if (completedStatus == null)
+                {
+                    return new ApiResponse<CompleteLabTestResponse>
+                    {
+                        Success = false,
+                        Message = "Completed status not found in system"
+                    };
+                }
+
+                // ====================================
+                // Update Lab Request
+                // ====================================
+                labRequest.IsCompleted = true;
+                labRequest.CompletedAt = request.CompletionDateTime ?? DateTime.UtcNow;
+
+                // ====================================
+                // Update Token Status
+                // ====================================
+                token.StatusId = completedStatus.Id;
+                token.CompletedAt = labRequest.CompletedAt;
+
+                _context.PatientLabRequests.Update(labRequest);
+                _context.Tokens.Update(token);
+
+                await _context.SaveChangesAsync();
+
+                // ====================================
+                // Fetch Updated Lab Queue
+                // ====================================
+                var updatedQueue = await GetLabQueueAsync();
+
+                // ====================================
+                // Return Success Response
+                // ====================================
+                return new ApiResponse<CompleteLabTestResponse>
+                {
+                    Success = true,
+                    Message = "Lab test completed successfully and patient returned to doctor",
+                    Data = new CompleteLabTestResponse
+                    {
+                        IsCompleted = true,
+                        CompletedAt = labRequest.CompletedAt,
+                        UpdatedLabQueue = updatedQueue,
+                        RemainingLabTests = updatedQueue.Count,
+                        Message = $"Lab test '{labRequest.LabTestName}' for patient {labRequest.Token?.Patient?.Name} has been completed"
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<CompleteLabTestResponse>
+                {
+                    Success = false,
+                    Message = $"Error completing lab test: {ex.Message}"
+                };
+            }
+        }
+    }
+}

@@ -1,0 +1,149 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    var role = Context.Session.GetString("Role");
+}
+
+
+
+
+<div class="sidebar">
+
+   
+    <div class="sidebar-logo">
+        <img src="~/images/logo.png" alt="Logo" asp-append-version="true" />
+        <h4 class="projecttext">SCMS</h4>
+    </div>
+
+
+    <ul class="menu-list">
+
+        <!-- Dashboard -->
+        @if (role == "Admin")
+        {
+            <li>
+                <a asp-controller="Dashboard" asp-action="Index">
+                    <i class="bi bi-grid"></i>
+                    Dashboard
+                </a>
+            </li>
+        }
+
+        <!-- Patients -->
+        @if (role == "Admin"
+          || role == "Doctor"
+          || role == "Receptionist")
+        {
+            <li>
+                <a asp-controller="Patients" asp-action="GetAllPatientList">
+                    <i class="bi bi-people"></i>
+                    Patients
+                </a>
+            </li>
+        }        
+
+        <!-- Appointments -->
+        @if (role == "Admin"
+          || role == "Doctor"
+          || role == "Receptionist")
+        {
+            <li>
+                <a asp-controller="Appointments"  asp-action="GetAllAppointments">
+                    <i class="bi bi-calendar-check"></i>
+                    Appointments & Tokens
+                </a>
+            </li>
+        }
+
+        <!-- Doctors -->
+        @if (role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Doctors" asp-action="DoctorTerminal">
+                    <i class="bi bi-heart-pulse"></i>
+                    Doctors
+                </a>
+            </li>
+        }
+
+        <!-- Doctors -->
+        @if (role == "Admin" || role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Lab" asp-action="LabQueue">
+                    <i class="bi bi-heart-pulse"></i>
+                    Lab
+                </a>
+            </li>
+        }
+        @if (role == "Admin" || role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Scan" asp-action="ScanQueue">
+                    <i class="bi bi-heart-pulse"></i>
+                    Scanning
+                </a>
+            </li>
+        }
+
+        <!-- Billing -->
+        @if (role == "Admin"
+          || role == "Pharmacist" || role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Billing" asp-action="BillingQueue">
+                    <i class="bi bi-cash-stack"></i>
+                    Billing Queue
+                </a>
+            </li>
+        }
+
+        <!-- Phrmacy -->
+        @if (role == "Admin" || role == "Pharmacist" || role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Pharmacy" asp-action="PharmacyQueue">
+                    <i class="bi bi-cash-stack"></i>
+                    Pharmacy Queue
+                </a>
+            </li>
+        }
+
+        @if (role == "Admin" || role == "Pharmacist" || role == "Doctor")
+        {
+            <li>
+                <a asp-controller="Admission" asp-action="AdmitQueue">
+                    <i class="bi bi-cash-stack"></i>
+                    Admission Queue
+                </a>
+            </li>
+        }
+
+        <!-- Reports -->
+        @* @if (role == "Admin")
+        {
+            <li>
+                <a asp-controller="Reports" asp-action="Index">
+                    <i class="bi bi-bar-chart"></i>
+                    Reports
+                </a>
+            </li>
+        } *@
+
+        <!-- Settings -->
+        @if (role == "Admin")
+        {
+            <li>
+                <a asp-controller="SystemAdmin"
+                   asp-action="Index">
+
+                    <i class="bi bi-heart-pulse"></i>
+
+                    Admin Config
+                </a>
+            </li>
+        }
+
+    </ul> 
+
+</div>

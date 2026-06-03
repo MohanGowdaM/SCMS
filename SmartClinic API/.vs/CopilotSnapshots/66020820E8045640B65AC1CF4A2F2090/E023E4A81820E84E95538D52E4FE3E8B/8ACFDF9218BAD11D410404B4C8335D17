@@ -1,0 +1,225 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Domain.Entities;
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SystemAdminController : ControllerBase
+    {
+        private readonly ISystemAdminService _service;
+        public SystemAdminController(ISystemAdminService service)
+        {
+            _service = service;
+        }
+        #region Roles
+        [HttpGet("GetRoles")]
+        public async Task<IActionResult> GetRoles()
+        {
+            return Ok(await _service.GetRoles());
+        }
+
+        [HttpGet("Roles/{id}")]
+        public async Task<IActionResult> GetRoleById(int id)
+        {
+            return Ok(await _service.GetRoleById(id));
+        }
+
+        [HttpPost("CreateRole")]
+        public async Task<IActionResult> CreateRole(RolesDto model)
+        {
+            return Ok(await _service.CreateRole(model));
+        }
+
+        [HttpPut("UpdateRole")]
+        public async Task<IActionResult> UpdateRole(RolesDto model)
+        {
+            return Ok(await _service.UpdateRole(model));
+        }
+
+        [HttpDelete("DeleteRole/{id}")]
+        public async Task<IActionResult> DeleteRole(int id)
+        {
+            return Ok(await _service.DeleteRole(id));
+        }
+        #endregion
+        #region Users
+        [HttpGet("Users")]
+        public async Task<IActionResult> GetUsers()
+        {
+            return Ok(await _service.GetUsers());
+        }
+        [HttpGet("Users/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            return Ok(await _service.GetUserById(id));
+        }
+        [HttpPost("CreateUsers")]
+        public async Task<IActionResult> CreateUser(UserDto model)
+        {
+            return Ok(await _service.CreateUser(model));
+        }
+        [HttpPut("Users/{id}")]
+        public async Task<IActionResult> UpdateUser(UserDto model)
+        {
+            return Ok(await _service.UpdateUser(model));
+        }
+        [HttpDelete("Users/{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            return Ok(await _service.DeleteUser(id));
+        }
+        #endregion
+        #region Departments
+        [HttpGet("Departments")]
+        public async Task<IActionResult> GetDepartments()
+        {
+            return Ok(await _service.GetDepartments());
+        }
+        [HttpGet("Departments/{id}")]
+        public async Task<IActionResult> GetDepartmentById(int id)
+        {
+            return Ok(await _service.GetDepartmentById(id));
+        }
+        [HttpPost("Departments")]
+        public async Task<IActionResult> CreateDepartment(DepartmentDto model)
+        {
+            return Ok(await _service.CreateDepartment(model));
+        }
+        [HttpPut("Departments/{id}")]
+        public async Task<IActionResult> UpdateDepartment(DepartmentDto model)
+        {
+            return Ok(await _service.UpdateDepartment(model));
+        }
+        [HttpDelete("Departments/{id}")]
+        public async Task<IActionResult> DeleteDepartment(int id)
+        {
+            return Ok(await _service.DeleteDepartment(id));
+        }
+        #endregion
+        #region Doctors
+        [HttpGet("Doctors")]
+        public async Task<IActionResult> GetDoctors()
+        {
+            return Ok(await _service.GetDoctors());
+        }
+        [HttpGet("Doctors/{id}")]
+        public async Task<IActionResult> GetDoctorById(int id)
+        {
+            return Ok(await _service.GetDoctorById(id));
+        }
+        [HttpPost("Doctors")]
+        public async Task<IActionResult> CreateDoctor(DoctorDto model)
+        {
+            return Ok(await _service.CreateDoctor(model));
+        }
+        [HttpPut("Doctors/{id}")]
+        public async Task<IActionResult> UpdateDoctor(DoctorDto model)
+        {
+            return Ok(await _service.UpdateDoctor(model));
+        }
+        [HttpDelete("Doctors/{id}")]
+        public async Task<IActionResult> DeleteDoctor(int id)
+        {
+            return Ok(await _service.DeleteDoctor(id));
+        }
+
+        [HttpGet("GetDoctorsByDepartment/{id}")]
+        public async Task<IActionResult> GetDoctorsByDepartment(int id)
+        {
+            return Ok(await _service.GetDoctorById(id));
+        }
+
+
+        #endregion
+        #region Symptoms
+        [HttpGet("Symptoms")]
+        public async Task<IActionResult> GetSymptoms()
+        {
+            return Ok(await _service.GetSymptoms());
+        }
+
+        [HttpGet("Symptoms/{id}")]
+        public async Task<IActionResult> GetSymptomById(int id)
+        {
+            return Ok(await _service.GetSymptomById(id));
+        }
+
+        [HttpPost("Symptoms")]
+        public async Task<IActionResult> CreateSymptom(SymptomsDto model)
+        {
+            return Ok(await _service.CreateSymptom(model));
+        }
+
+        [HttpPut("Symptoms/{id}")]
+        public async Task<IActionResult> UpdateSymptom(SymptomsDto model)
+        {
+            return Ok(await _service.UpdateSymptom(model));
+        }
+
+        [HttpDelete("Symptoms/{id}")]
+        public async Task<IActionResult> DeleteSymptom(int id)
+        {
+            return Ok(await _service.DeleteSymptom(id));
+        }
+        #endregion        
+        #region Priority  Configuration
+        [HttpGet("GetPriorityConfigurations")]
+        public async Task<IActionResult> GetPriorityConfigurations()
+        {
+            return Ok(await _service.GetPriorityConfigurations());
+        }
+        [HttpGet("GetPriorityConfigurations/{id}")]
+        public async Task<IActionResult> GetPriorityConfigurationById(int id)
+        {
+            return Ok(await _service.GetPriorityConfigurationById(id));
+        }
+        [HttpPost("CreatePriorityConfiguration")]
+        public async Task<IActionResult> CreatePriorityConfiguration(PriorityConfigDto model)
+        {
+            return Ok(await _service.CreatePriorityConfiguration(model));
+        }
+        [HttpPut("UpdatePriorityConfiguration/{id}")]
+        public async Task<IActionResult> UpdatePriorityConfiguration(PriorityConfigDto model)
+        {
+            return Ok(await _service.UpdatePriorityConfiguration(model));
+        }
+        [HttpDelete("DeletePriorityConfiguration/{id}")]
+        public async Task<IActionResult> DeletePriorityConfiguration(int id)
+        {
+            return Ok(await _service.DeletePriorityConfiguration(id));
+        }
+        #endregion
+        #region TOKEN STATUSES
+        [HttpGet("GetTokenStatuses")]
+        public async Task<IActionResult> GetTokenStatuses()
+        {
+            return Ok(await _service.GetTokenStatuses());
+        }
+        [HttpGet("GetTokenStatuses/{id}")]
+        public async Task<IActionResult> GetTokenStatusById(int id)
+        {
+            return Ok(await _service.GetTokenStatusById(id));
+        }
+        [HttpPost("CreateTokenStatus")]
+        public async Task<IActionResult> CreateTokenStatus(TokenStatusDTO model)
+        {
+            return Ok(await _service.CreateTokenStatus(model));
+        }
+        [HttpPut("UpdateTokenStatus/{id}")]
+        public async Task<IActionResult> UpdateTokenStatus(TokenStatusDTO model)
+        {
+            return Ok(await _service.UpdateTokenStatus(model));
+        }
+        [HttpDelete("DeleteTokenStatus/{id}")]
+        public async Task<IActionResult> DeleteTokenStatus(int id)
+        {
+            return Ok(await _service.DeleteTokenStatus(id));
+        }
+        #endregion
+
+    }
+}

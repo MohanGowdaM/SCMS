@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using SmartClinic.Application.DTOs;
+
+namespace SmartClinic.Application.Interfaces
+{
+    public interface IAppointmentService
+    {
+        Task<ApiResponse<List<AppointmentDto>>> GetAllAppointmentsAsync();
+        Task<ApiResponse<string>> UpdateStatusAsync(UpdateStatusRequest request);
+        Task<ApiResponse<AppointmentConflictResponse>> CheckAppointmentConflictAsync(CheckAppointmentConflictRequest request);
+
+        Task<bool> CollectPayment(PaymentRequest request);
+    }
+}

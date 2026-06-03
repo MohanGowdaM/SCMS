@@ -1,0 +1,53 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.Interfaces;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DoctorsController : Controller
+    {
+        private readonly IDoctorService _doctorService;
+
+        public DoctorsController(IDoctorService doctorService)
+        {
+            _doctorService = doctorService;
+        }
+
+
+        [HttpGet("GetDoctorQueue")]
+        public async Task<IActionResult>GetDoctorQueue(int doctorId)
+        {
+            try
+            {
+                var result = await _doctorService.GetDoctorQueueAsync(doctorId);
+
+                if (result == null)
+                {
+                    return BadRequest(
+                        new
+                        {
+                            success = false,
+                            message = "Doctor not found"
+                        });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Domain.Entities;
+using SmartClinic.Infrastructure.Persistence;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class TokenSequenceService : ITokenSequenceService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public TokenSequenceService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<string> GenerateTokenNumberAsync(int departmentId, string departmentName)
+        {
+            try
+            {
+                var today = DateTime.Now.Date;
+
+                // Get or create token sequence for the department
+                var tokenSequence = await _context.TokenSequences
+                    .FirstOrDefaultAsync(x => x.DepartmentId == departmentId);
+
+                if (tokenSequence == null)
+                {
+                    // Create new sequence if doesn't exist
+                    tokenSequence = new TokenSequence
+                    {
+                        DepartmentId = departmentId,
+                        CurrentSequence = 1,
+                        LastResetDate = today,
+                        CreatedDateTime = DateTime.Now
+                    };
+
+                    await _context.TokenSequences.AddAsync(tokenSequence);
+                    await _context.SaveChangesAsync();
+
+                    return $"TOK/{departmentName}/{tokenSequence.CurrentSequence}";
+                }
+
+                // Check if we need to reset the sequence (if last reset date is not today)
+                if (tokenSequence.LastResetDate.Date < today)
+                {
+                    // Reset the sequence
+                    tokenSequence.CurrentSequence = 1;
+                    tokenSequence.LastResetDate = today;
+                    tokenSequence.UpdatedDateTime = DateTime.Now;
+                }
+                else
+                {
+                    // Increment the sequence
+                    tokenSequence.CurrentSequence += 1;
+                    tokenSequence.UpdatedDateTime = DateTime.Now;
+                }
+
+                _context.TokenSequences.Update(tokenSequence);
+                await _context.SaveChangesAsync();
+
+                return $"TOK/{departmentName}/{tokenSequence.CurrentSequence}";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error generating token number: {ex.Message}", ex);
+            }
+        }
+    }
+}

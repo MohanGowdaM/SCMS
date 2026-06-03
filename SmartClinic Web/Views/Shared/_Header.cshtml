@@ -1,0 +1,21 @@
+﻿<header class="top-header">
+
+    <div class="profile-section">
+
+        <span>
+            @Context.Session.GetString("Username")
+        </span>
+
+        <img src="~/images/user.png" />
+
+        <a asp-controller="Account" asp-action="Logout"
+               class="btn btn-danger btn-sm ms-3">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            Logout
+        </a>
+
+    </div>
+
+</header>

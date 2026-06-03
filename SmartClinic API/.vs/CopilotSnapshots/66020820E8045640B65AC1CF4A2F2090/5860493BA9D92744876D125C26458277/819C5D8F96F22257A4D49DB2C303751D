@@ -1,0 +1,59 @@
+﻿using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Domain.Entities;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class PatientService : IPatientService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public PatientService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<bool> AddPatientAsync(PatientDto dto)
+        {
+            try
+            {
+                var patient = new Patient
+                {
+                    Uhid = GenerateUHID(),
+                    Name = dto.Name,                   
+                    Gender = dto.Gender,
+                    MobileNumber = dto.MobileNumber,
+                    Age = dto.Age,
+                    Symptoms = dto.Symptoms,
+                    IsDeleted = false,
+                    CreatedDateTime = DateTime.Now,
+                    CreatedBy = "System"
+                };
+
+                await _context.Patients.AddAsync(patient);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private string GenerateUHID()
+        {
+            var year = DateTime.Now.ToString("yy");
+
+            var month = DateTime.Now.ToString("MM");
+
+            var patientCount = _context.Patients.Count() + 1;
+
+            return $"SC{year}{month}{patientCount:D4}";
+        }
+    }
+}

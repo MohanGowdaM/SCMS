@@ -1,0 +1,101 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class LabService : ILabService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public LabService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<List<LabQueueDto>>GetLabQueueAsync()
+        {
+            return await _context
+                .PatientLabRequests
+                .Where(x =>
+                    x.IsCompleted == false
+                )
+                .Select(x =>
+                    new LabQueueDto
+                    {
+                        Id = x.Id,
+
+                        TokenId =
+                            x.TokenId,
+
+                        TokenNumber =
+                            x.Token.TokenNumber,
+
+                        PatientName =
+                            x.Token.Patient.Name,
+
+                        LabTests =
+                            x.LabTestName,
+
+                        Notes =
+                            x.Notes
+                    })
+                .ToListAsync();
+        }
+
+        public async Task<ApiResponse<bool>>CompleteLabTestAsync(int id, int tokenId)
+        {
+            try
+            {
+                var request =
+                    await _context
+                        .PatientLabRequests
+                        .FirstOrDefaultAsync(
+                            x =>
+                            x.Id == id
+                        );
+
+                request.IsCompleted =
+                    true;
+
+                request.CompletedAt =
+                    DateTime.Now;
+
+                var token =
+                    await _context
+                        .Tokens
+                        .FirstOrDefaultAsync(
+                            x =>
+                            x.Id ==
+                            tokenId
+                        );
+
+                token.StatusId = 9;
+
+                await _context
+                    .SaveChangesAsync();
+
+                return new ApiResponse<bool>
+                {
+                    Success = true,
+
+                    Message =
+                        "Lab completed and patient returned to doctor"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<bool>
+                {
+                    Success = false,
+
+                    Message =
+                        ex.Message
+                };
+            }
+        }
+    }
+}

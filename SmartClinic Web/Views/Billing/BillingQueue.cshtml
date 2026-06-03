@@ -1,0 +1,191 @@
+﻿<div class="container-fluid mt-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+
+            <h4>
+
+                Billing Queue
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered"
+                   id="tblBillingQueue"
+                   style="width:100%">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Token No
+                        </th>
+
+                        <th>
+                            Patient Name
+                        </th>
+
+                        <th>
+                            Consultation
+                        </th>
+
+                        <th>
+                            Lab
+                        </th>
+
+                        <th>
+                            Scan
+                        </th>
+
+                        <th>
+                            Medicine
+                        </th>
+
+                        <th>
+                            Total
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade"
+     id="paymentModal"
+     tabindex="-1">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Complete Payment
+
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden"
+                       id="paymentBillingId" />
+
+                <input type="hidden"
+                       id="paymentTokenId" />
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Total Amount
+
+                    </label>
+
+                    <input id="txtPaymentAmount"
+                           class="form-control"
+                           readonly />
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Payment Method
+
+                    </label>
+
+                    <select id="ddlPaymentMethod"
+                            class="form-select">
+
+                        <option value="Cash">
+                            Cash
+                        </option>
+
+                        <option value="Card">
+                            Card
+                        </option>
+
+                        <option value="UPI">
+                            UPI
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Remarks
+
+                    </label>
+
+                    <textarea id="txtPaymentRemarks"
+                              class="form-control"
+                              rows="3">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button id="btnConfirmPayment"
+                        class="btn btn-success">
+
+                    Confirm Payment
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+   <script src="~/js/billingqueue.js" asp-append-version="true"></script>
+}

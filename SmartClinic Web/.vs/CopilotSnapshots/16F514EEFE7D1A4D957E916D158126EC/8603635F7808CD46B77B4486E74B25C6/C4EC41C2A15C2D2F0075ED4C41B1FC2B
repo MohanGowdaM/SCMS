@@ -1,0 +1,100 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using SmartClinic.Web.Filters;
+using SmartClinic.Web.Models.Account;
+using SmartClinic.Web.Models.Patient;
+using System.Text;
+
+namespace SmartClinic.Web.Controllers
+{
+    [RoleAuthorize("Admin","Doctor","Receptionist")]
+    public class PatientsController : Controller
+    {
+        private readonly HttpClient _httpClient;
+
+        public PatientsController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient("SmartClinicAPI");
+        }
+        public async Task<IActionResult> GetAllPatientList()
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Call the API to get all patients
+                var response = await _httpClient.GetAsync("Patients/GetAllPatients");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    ViewBag.ErrorMessage = "Failed to fetch patient list";
+                    return View(new List<PatientDto>());
+                }
+
+                var jsonContent = await response.Content.ReadAsStringAsync();
+                var patients = JsonConvert.DeserializeObject<List<PatientDto>>(jsonContent);
+
+                return View(patients ?? new List<PatientDto>());
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Error fetching patient list: {ex.Message}";
+                return View(new List<PatientDto>());
+            }
+        }
+
+        [HttpGet]
+        public IActionResult AddPatientModal()
+        {
+            return PartialView("_AddPatientModal");
+        }
+
+        [HttpPost]       
+        public async Task<IActionResult> SavePatient(PatientDto model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            // Get JWT Token from Session
+            var token = HttpContext.Session.GetString("JWToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Add JWT Token to Header
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer",token);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync("Patients/SavePatient", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Failed to save patient"
+                });
+            }
+
+            return Json(new
+            {
+                success = true,
+                message = "Patient added successfully"
+            });
+        }
+    }
+}

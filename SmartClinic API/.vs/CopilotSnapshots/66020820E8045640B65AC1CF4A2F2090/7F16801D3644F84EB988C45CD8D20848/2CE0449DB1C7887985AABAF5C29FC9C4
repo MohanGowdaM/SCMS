@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Infrastructure.Persistence;
+
+namespace SmartClinic.Infrastructure.Services
+{
+    public class AppointmentService : IAppointmentService
+    {
+        private readonly ApplicationDbContext _context;
+
+        public AppointmentService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<ApiResponse<List<AppointmentDto>>> GetAllAppointmentsAsync()
+        {
+            try
+            {
+                var appointments = await _context.Tokens
+                    .Include(x => x.Patient)
+                    .Include(x => x.Doctor)
+                    .Include(x => x.Department)
+                    .Include(x => x.Status)
+                    .Where(x => x.Patient != null && x.Patient.IsDeleted == false)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .ToListAsync();
+
+                if (!appointments.Any())
+                {
+                    return new ApiResponse<List<AppointmentDto>>
+                    {
+                        Success = true,
+                        Message = "No appointments found",
+                        Data = new List<AppointmentDto>()
+                    };
+                }
+
+                var appointmentDtos = new List<AppointmentDto>();
+                int slNo = 1;
+
+                foreach (var appointment in appointments)
+                {
+                    // Get priority name from PriorityConfig
+                    var priorityName = "Normal";
+                    if (appointment.Priority.HasValue && appointment.Priority > 0)
+                    {
+                        priorityName = await _context.PriorityConfigs
+                            .Where(x => x.Id == appointment.Priority && x.IsDeleted == false)
+                            .Select(x => x.Name)
+                            .FirstOrDefaultAsync() ?? "Normal";
+                    }
+
+                    var dto = new AppointmentDto
+                    {
+                        SlNo = slNo++,
+                        TokenNumber = appointment.TokenNumber,
+                        Uhid = appointment.Patient?.Uhid ?? string.Empty,
+                        PatientName = appointment.Patient?.Name ?? string.Empty,
+                        DoctorName = appointment.Doctor?.Name ?? "Not Assigned",
+                        DepartmentName = appointment.Department?.Name ?? string.Empty,
+                        PriorityName = priorityName,
+                        StatusName = appointment.Status?.Name ?? "Unknown",
+                        CreatedTime = appointment.CreatedAt
+                    };
+
+                    appointmentDtos.Add(dto);
+                }
+
+                return new ApiResponse<List<AppointmentDto>>
+                {
+                    Success = true,
+                    Message = $"Retrieved {appointmentDtos.Count} appointments successfully",
+                    Data = appointmentDtos
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<List<AppointmentDto>>
+                {
+                    Success = false,
+                    Message = $"Error retrieving appointments: {ex.Message}",
+                    Data = new List<AppointmentDto>()
+                };
+            }
+        }
+
+        public async Task<ApiResponse<string>> UpdateStatusAsync(UpdateStatusRequest request)
+        {
+            try
+            {
+                // Validate request
+                if (request == null || request.AppointmentId <= 0)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Invalid appointment ID"
+                    };
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Status))
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Status cannot be empty"
+                    };
+                }
+
+                // Find the token/appointment
+                var token = await _context.Tokens
+                    .FirstOrDefaultAsync(x => x.Id == request.AppointmentId);
+
+                if (token == null)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = "Appointment not found"
+                    };
+                }
+
+                // Find the status by name
+                var tokenStatus = await _context.TokenStatuses
+                    .FirstOrDefaultAsync(x =>
+                        x.Name.ToLower() == request.Status.ToLower() &&
+                        x.IsDeleted == false);
+
+                if (tokenStatus == null)
+                {
+                    return new ApiResponse<string>
+                    {
+                        Success = false,
+                        Message = $"Status '{request.Status}' not found"
+                    };
+                }
+
+                // Update the token status
+                token.StatusId = tokenStatus.Id;
+
+                // Set status-specific timestamps
+                if (request.Status.ToLower() == "called")
+                {
+                    token.CalledAt = DateTime.Now;
+                }
+                else if (request.Status.ToLower() == "completed")
+                {
+                    token.CompletedAt = DateTime.Now;
+                }
+
+                _context.Tokens.Update(token);
+                await _context.SaveChangesAsync();
+
+                return new ApiResponse<string>
+                {
+                    Success = true,
+                    Message = $"Appointment status updated to '{request.Status}' successfully"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = $"Error updating appointment status: {ex.Message}"
+                };
+            }
+        }
+    }
+}

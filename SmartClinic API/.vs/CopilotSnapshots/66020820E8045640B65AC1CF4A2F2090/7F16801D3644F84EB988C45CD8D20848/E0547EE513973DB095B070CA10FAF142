@@ -1,0 +1,83 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+using System.Threading.Tasks;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AppointmentController : ControllerBase
+    {
+        private readonly IAppointmentService _appointmentService;
+
+        public AppointmentController(IAppointmentService appointmentService)
+        {
+            _appointmentService = appointmentService;
+        }
+
+
+        [HttpGet("GetAllAppointments")]
+        public async Task<IActionResult> GetAllAppointments()
+        {
+            try
+            {
+                var result = await _appointmentService.GetAllAppointmentsAsync();
+
+                if (!result.Success)
+                {
+                    return BadRequest(result);
+                }
+
+                return Ok(result);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    Success = false,
+                    Message = $"Internal server error: {ex.Message}"
+                });
+            }
+        }
+
+        /// <summary>
+        /// Update appointment status
+        /// </summary>
+        /// <param name="request">UpdateStatusRequest with AppointmentId and Status</param>
+        /// <returns>Success/failure response</returns>
+        [HttpPost("UpdateStatus")]
+        public async Task<IActionResult> UpdateStatus([FromBody] UpdateStatusRequest request)
+        {
+            try
+            {
+                var result = await _appointmentService.UpdateStatusAsync(request);
+
+                if (!result.Success)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = result.Message
+                    });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = result.Message
+                });
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Internal server error: {ex.Message}"
+                });
+            }
+        }
+    }
+}

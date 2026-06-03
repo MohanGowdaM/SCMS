@@ -1,0 +1,1116 @@
+﻿<!-- ======================================================
+    CONSULTATION MODAL
+====================================================== -->
+
+<div class="modal fade" id="consultationModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered consultation-modal-dialog">
+
+        <div class="modal-content consultation-modal-content">
+
+            <!-- ==========================================
+                HEADER
+            ========================================== -->
+
+            <div class="consultation-header">
+
+                <div class="header-top">
+
+                    <div class="header-left">
+
+                        <h2>
+
+                            Consultation -
+                            <span id="modalTokenNumber">
+
+                                RAD-001
+
+                            </span>
+
+                        </h2>
+
+                    </div>
+
+                    <button type="button" class="btn-close-custom" data-bs-dismiss="modal">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                MODAL BODY
+            ========================================== -->
+            <div class="consultation-body">
+
+                <!-- ==========================================
+                    PATIENT INFO
+                ========================================== -->
+
+                <div class="patient-card-single">
+
+                    <div class="patient-info-box">
+
+                        <div class="patient-label">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <span>
+                                PATIENT NAME
+                            </span>
+
+                        </div>
+
+                        <div id="modalPatientName"
+                             class="patient-value">
+
+                            Ramu
+
+                        </div>
+
+                    </div>
+
+                    <div class="patient-info-box">
+
+                        <div class="patient-label">
+
+                            <i class="fa-solid fa-ticket"></i>
+
+                            <span>
+                                TOKEN NO
+                            </span>
+
+                        </div>
+
+                        <div id="modalTokenNo"
+                             class="patient-value">
+
+                            RAD-001
+
+                        </div>
+
+                    </div>
+
+                    <div class="patient-info-box">
+
+                        <div class="patient-label">
+
+                            <i class="fa-solid fa-flag"></i>
+
+                            <span>
+                                PRIORITY
+                            </span>
+
+                        </div>
+
+                        <div id="modalPriority"
+                             class="priority-badge">
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                            High Priority
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                    ACTION GRID
+                ========================================== -->
+                <div class="action-grid">
+
+                    <div class="action-tile active"
+                         data-tab="prescriptionTab">
+
+                        <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                        <span>
+                            Prescription
+                        </span>
+
+                    </div>
+
+                    <div class="action-tile"
+                         data-tab="labTab">
+
+                        <i class="fa-solid fa-flask"></i>
+
+                        <span>
+                            Lab Test
+                        </span>
+
+                    </div>
+
+                    <div class="action-tile"
+                         data-tab="xrayTab">
+
+                        <i class="fa-solid fa-x-ray"></i>
+
+                        <span>
+                            X-Ray / Scan
+                        </span>
+
+                    </div>
+
+                    <div class="action-tile"
+                         data-tab="billingTab">
+
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                        <span>
+                            Billing
+                        </span>
+
+                    </div>
+
+                    <div class="action-tile"
+                         data-tab="admitTab">
+
+                        <i class="fa-solid fa-bed-pulse"></i>
+
+                        <span>
+                            Admit
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                    TAB CONTENT
+                ========================================== -->
+                <div class="tab-content-wrapper">
+
+                    <!-- ==========================================
+                        PRESCRIPTION TAB
+                    ========================================== -->
+                    <div id="prescriptionTab" class="consult-tab-content">
+
+                        <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-notes-medical"></i>
+
+                                Prescription
+
+                            </h3>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+
+                                    Diagnosis
+
+                                </label>
+
+                                <input id="txtDiagnosis" type="text"
+                                       class="form-control"
+                                       placeholder="Enter Diagnosis">
+
+                            </div>
+
+                            <div class="medicine-card">
+
+                                <h5>
+
+                                    <i class="fa-solid fa-capsules"></i>
+
+                                    Medicines
+
+                                </h5>
+
+                                <div class="row g-3">
+
+                                    <div class="col-md-3">
+
+                                        <label class="form-label">
+
+                                            Medicine
+
+                                        </label>
+
+                                        <div class="d-flex gap-2">
+
+                                            <select id="ddlMedicine"
+                                                    class="form-select">
+
+                                                <option value="">
+                                                    Select Medicine
+                                                </option>
+
+                                            </select>
+
+                                            <button class="btn btn-outline-primary"
+                                                    id="btnAddNewMedicine">
+
+                                                + Add New
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-2">
+
+                                        <label class="form-label">
+
+                                            Quantity
+
+                                        </label>
+
+                                        <input type="number"
+                                               id="txtQuantity"
+                                               class="form-control"
+                                               placeholder="Qty">
+
+                                    </div>
+
+                                    <div class="col-md-2">
+
+                                        <label class="form-label">
+
+                                            Dosage
+
+                                        </label>
+
+                                        <input type="text"
+                                               id="txtDosage"
+                                               class="form-control"
+                                               placeholder="1 Tablet">
+
+                                    </div>
+
+                                    <div class="col-md-2">
+
+                                        <label class="form-label">
+
+                                            Days
+
+                                        </label>
+
+                                        <input type="number"
+                                               id="txtDays"
+                                               class="form-control"
+                                               placeholder="Days">
+
+                                    </div>
+
+                                    <div class="col-md-3">
+
+                                        <label class="form-label">
+
+                                            Food
+
+                                        </label>
+
+                                        <select id="ddlFood"
+                                                class="form-select">
+
+                                            <option value="Before Food">
+
+                                                Before Food
+
+                                            </option>
+
+                                            <option value="After Food">
+
+                                                After Food
+
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="mt-3">
+
+                                    <label class="form-label">
+
+                                        Timing
+
+                                    </label>
+
+                                    <div class="timing-group">
+
+                                        <div class="form-check">
+
+                                            <input class="form-check-input"
+                                                   type="checkbox"
+                                                   id="chkMorning">
+
+                                            <label class="form-check-label">
+
+                                                Morning
+
+                                            </label>
+
+                                        </div>
+
+                                        <div class="form-check">
+
+                                            <input class="form-check-input"
+                                                   type="checkbox"
+                                                   id="chkLunch">
+
+                                            <label class="form-check-label">
+
+                                                Lunch
+
+                                            </label>
+
+                                        </div>
+
+                                        <div class="form-check">
+
+                                            <input class="form-check-input"
+                                                   type="checkbox"
+                                                   id="chkDinner">
+
+                                            <label class="form-check-label">
+
+                                                Dinner
+
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <button class="btn btn-success mt-3"
+                                        id="btnAddMedicine">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                    Add Medicine
+
+                                </button>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+
+                                    Additional Instructions
+
+                                </label>
+
+                                <textarea id="txtPrescriptionNotes"
+                                          class="form-control"
+                                          rows="2"
+                                          placeholder="Optional notes for patient">
+                                      </textarea>
+
+                            </div>
+
+                            <div class="prescription-actions" id="printContainer" style="display:none;">
+
+                                <button id="btnPrintPrescription" type="button" class="btn-print-prescription">
+
+                                    <i class="fa-solid fa-print"></i>
+
+                                    Print Prescription
+
+                                </button>
+
+                            </div>
+
+                            <div id="medicineTableContainer" style="display:none;">
+
+
+                                <table class="table table-bordered mt-4" id="tblPrescription">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                Medicine
+                                            </th>
+
+                                            <th>
+                                                Qty
+                                            </th>
+
+                                            <th>
+                                                Dosage
+                                            </th>
+
+                                            <th>
+                                                Timing
+                                            </th>
+
+                                            <th>
+                                                Food
+                                            </th>
+
+                                            <th>
+                                                Days
+                                            </th>
+
+                                            <th>
+                                                Action
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="tblPrescriptionBody">
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+
+                            <button id="btnSavePrescription" class="btn-save">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Save Prescription
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ==========================================
+                        LAB TAB
+                    ========================================== -->
+
+                    <div id="labTab" class="consult-tab-content d-none">
+
+                        <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-flask"></i>
+
+                                Lab Test
+
+                            </h3>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+
+                                    Select Lab Tests
+
+                                </label>
+
+                                <div class="lab-category-grid">
+
+                                    <!-- Blood Test -->
+                                    <div class="lab-dropdown-card">
+
+                                        <div class="lab-dropdown-header"
+                                             data-target="#bloodTestContainer">
+
+                                            <span>
+
+                                                Blood Test
+
+                                            </span>
+
+                                            <div class="lab-header-actions">
+
+                                                <button type="button"
+                                                        class="btn-clear-card"
+                                                        data-container="#bloodTestContainer">
+
+                                                    Clear
+
+                                                </button>
+
+                                                <i class="fa-solid fa-chevron-down"></i>
+
+                                            </div>
+
+                                            
+
+                                        </div>
+
+                                        <div id="bloodTestContainer"
+                                             class="lab-dropdown-body">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Urine Test -->
+                                    <div class="lab-dropdown-card">
+
+                                        <div class="lab-dropdown-header"
+                                             data-target="#urineTestContainer">
+
+                                            <span>
+
+                                                Urine Test
+
+                                            </span>
+
+                                            <div class="lab-header-actions">
+
+                                                <button type="button"
+                                                        class="btn-clear-card"
+                                                        data-container="#urineTestContainer">
+
+                                                    Clear
+
+                                                </button>
+
+                                                <i class="fa-solid fa-chevron-down"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="urineTestContainer"
+                                             class="lab-dropdown-body">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- ECG -->
+                                    <div class="lab-dropdown-card">
+
+                                        <div class="lab-dropdown-header"
+                                             data-target="#ecgTestContainer">
+
+                                            <span>
+
+                                                ECG
+
+                                            </span>
+
+                                            <div class="lab-header-actions">
+
+                                                <button type="button"
+                                                        class="btn-clear-card"
+                                                        data-container="#ecgTestContainer">
+
+                                                    Clear
+
+                                                </button>
+
+                                                <i class="fa-solid fa-chevron-down"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="ecgTestContainer"
+                                             class="lab-dropdown-body">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Sugar -->
+                                    <div class="lab-dropdown-card">
+
+                                        <div class="lab-dropdown-header"
+                                             data-target="#sugarTestContainer">
+
+                                            <span>
+
+                                                Sugar Test
+
+                                            </span>
+
+                                            <div class="lab-header-actions">
+
+                                                <button type="button"
+                                                        class="btn-clear-card"
+                                                        data-container="#sugarTestContainer">
+
+                                                    Clear
+
+                                                </button>
+
+                                                <i class="fa-solid fa-chevron-down"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="sugarTestContainer"
+                                             class="lab-dropdown-body">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- CBC -->
+                                    <div class="lab-dropdown-card">
+
+                                        <div class="lab-dropdown-header"
+                                             data-target="#cbcTestContainer">
+
+                                            <span>
+
+                                                CBC
+
+                                            </span>
+
+                                            <div class="lab-header-actions">
+
+                                                <button type="button"
+                                                        class="btn-clear-card"
+                                                        data-container="#cbcTestContainer">
+
+                                                    Clear
+
+                                                </button>
+
+                                                <i class="fa-solid fa-chevron-down"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="cbcTestContainer"
+                                             class="lab-dropdown-body">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+
+                                    Lab Notes
+
+                                </label>
+
+                                <div class="speech-container">
+
+                                    <textarea id="txtLabNotes"
+                                              class="form-control"
+                                              rows="4"
+                                              placeholder="Enter Lab Notes"></textarea>
+
+                                    <!-- Voice Button -->
+                                    <button id="btnVoiceLabNotes"
+                                            type="button"
+                                            class="voice-btn">
+
+                                        <i class="fa-solid fa-microphone"></i>
+
+                                    </button>
+
+                                    <!-- Clear Button -->
+                                    <button id="btnClearLabNotes"
+                                            type="button"
+                                            class="clear-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <button id="btnSendToLab"
+                                    class="btn-save">
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                                Send To Lab
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ==========================================
+                        XRAY TAB
+                    ========================================== -->
+
+                    <div id="xrayTab" class="consult-tab-content d-none">        
+
+                        <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-x-ray"></i>
+
+                                X-Ray / Scan
+
+                            </h3>
+
+                            <label class="form-label mb-3">
+
+                                Select Scan Types
+
+                            </label>
+
+                            <!-- Dynamic Scan Categories -->
+                            <div class="lab-category-grid"
+                                 id="scanCategoryGrid">
+                            </div>
+
+                            <div class="mb-4 mt-4">
+
+                                <label class="form-label">
+
+                                    Scan Notes
+
+                                </label>
+
+                                <div class="speech-container">
+
+                                    <textarea id="txtScanNotes"
+                                              class="form-control"
+                                              rows="4"
+                                              placeholder="Enter Scan Notes">
+                                          </textarea>
+
+                                    <!-- Voice Button -->
+                                    <button id="btnVoiceScanNotes"
+                                            type="button"
+                                            class="voice-btn">
+
+                                        <i class="fa-solid fa-microphone"></i>
+
+                                    </button>
+
+                                    <!-- Clear Button -->
+                                    <button id="btnClearScanNotes"
+                                            type="button"
+                                            class="clear-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <button id="btnSendToScan"
+                                    class="btn-save">
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                                Send To Scan
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==========================================
+                        BILLING TAB
+                    ========================================== -->
+
+                    <div id="billingTab"
+                         class="consult-tab-content d-none">
+
+                        <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                                Send To Billing
+
+                            </h3>
+
+                            <div class="row">
+
+                                <div class="col-md-6 mb-3">
+
+                                    <label class="form-label">
+
+                                        Consultation Fee
+
+                                    </label>
+
+                                    <input id="txtConsultationFee"
+                                           type="number"
+                                           class="form-control"
+                                           value="500" />
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+
+                                    <label class="form-label">
+
+                                        Lab Fee
+
+                                    </label>
+
+                                    <input id="txtLabFee"
+                                           type="number"
+                                           class="form-control"
+                                           value="0" />
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+
+                                    <label class="form-label">
+
+                                        Scan Fee
+
+                                    </label>
+
+                                    <input id="txtScanFee"
+                                           type="number"
+                                           class="form-control"
+                                           value="0" />
+
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+
+                                    <label class="form-label">
+
+                                        Medicine Fee
+
+                                    </label>
+
+                                    <input id="txtMedicineFee"
+                                           type="number"
+                                           class="form-control"
+                                           value="0" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+
+                                    Billing Notes
+
+                                </label>
+
+                                <textarea id="txtBillingNotes"
+                                          class="form-control"
+                                          rows="4"></textarea>
+
+                            </div>
+
+                            <div class="total-card">
+
+                                Total Amount:
+                                ₹ <span id="lblTotalAmount">
+
+                                500
+
+                            </span>
+
+                        </div>
+
+                        <button id="btnSendToBilling"
+                                class="btn-save">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Send To Billing
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                        ADMIT TAB
+                    ========================================== -->
+                <div id="admitTab" class="consult-tab-content d-none">
+
+                    @*  <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-bed-pulse"></i>
+
+                                Admit Patient
+
+                            </h3>
+
+                            <div class="mb-4">
+
+                                <label class="form-label">
+
+                                    Admission Reason
+
+                                </label>
+
+                                <textarea class="form-control prescription-textarea"
+                                          placeholder="Enter Admission Reason"></textarea>
+
+                            </div>
+
+                            <button class="btn-save">
+
+                                <i class="fa-solid fa-hospital-user"></i>
+
+                                Admit Patient
+
+                            </button>
+
+                        </div> *@
+
+                    <div class="consult-card">
+
+                        <h2>
+
+                            <i class="fa-solid fa-bed"></i>
+
+                            Admit Patient
+
+                        </h2>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Admission Reason
+
+                            </label>
+
+                            <div class="speech-container">
+
+                                <textarea id="txtAdmissionReason"
+                                          class="form-control"
+                                          rows="4"
+                                          placeholder="Enter Admission Reason">
+            </textarea>
+
+                                <button id="btnVoiceAdmit"
+                                        type="button"
+                                        class="voice-btn">
+
+                                    <i class="fa-solid fa-microphone"></i>
+
+                                </button>
+
+                                <button id="btnClearAdmit"
+                                        type="button"
+                                        class="clear-btn">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+
+                                    Ward Type
+
+                                </label>
+
+                                <select id="ddlWardType"
+                                        class="form-select">
+
+                                    <option value="General">
+                                        General
+                                    </option>
+
+                                    <option value="Semi Private">
+                                        Semi Private
+                                    </option>
+
+                                    <option value="Private">
+                                        Private
+                                    </option>
+
+                                    <option value="ICU">
+                                        ICU
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-primary mt-4" id="btnSendToAdmit">
+
+                            <i class="fa-solid fa-bed"></i>
+
+                            Send To Admit
+
+                        </button>
+
+                    </div>
+
+
+
+                </div>
+
+                <!-- ==========================================
+                        COMPLETE TAB
+                    ========================================== -->
+                @* <div id="completeTab"
+                         class="consult-tab-content d-none">
+
+                        <div class="consult-content-card">
+
+                            <h3>
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Complete Visit
+
+                            </h3>
+
+                            <p>
+
+                                Click below to complete patient consultation.
+
+                            </p>
+
+                            <button class="btn-save">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Complete Visit
+
+                            </button>
+
+                        </div>
+
+                    </div> *@
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+

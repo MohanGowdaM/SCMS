@@ -1,0 +1,71 @@
+﻿@model SmartClinic.Web.Models.Account.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="text-center">
+
+            <img src="~/images/logo.png"
+                 class="logo"
+                 asp-append-version="true" />
+            
+            <h1>SMART Clinic</h1>
+
+            <p>
+                AI Powered Queue &
+                Clinic Management
+            </p>
+
+        </div>
+
+        <form asp-action="Login"
+              asp-controller="Account"
+              method="post">
+
+            <div class="mb-3">
+
+                <label>
+                    Username
+                </label>
+
+                <input asp-for="Username"
+                       class="form-control"
+                       placeholder="Enter Username" />
+
+            </div>
+
+            <div class="mb-4">
+
+                <label>
+                    Password
+                </label>
+
+                <input asp-for="Password"
+                       type="password"
+                       class="form-control"
+                       placeholder="Enter Password" />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary w-100">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="footer-text">
+            Powered by SMART Clinic System
+        </div>
+
+    </div>
+
+</div>

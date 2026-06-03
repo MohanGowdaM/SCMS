@@ -1,0 +1,99 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.Interfaces;
+using SmartClinic.Application.DTOs;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DoctorsController : Controller
+    {
+        private readonly IDoctorService _doctorService;
+
+        public DoctorsController(IDoctorService doctorService)
+        {
+            _doctorService = doctorService;
+        }
+
+
+        [HttpGet("GetDoctorQueue")]
+        public async Task<IActionResult>GetDoctorQueue(int doctorId)
+        {
+            try
+            {
+                var result = await _doctorService.GetDoctorQueueAsync(doctorId);
+
+                if (result == null)
+                {
+                    return BadRequest(
+                        new
+                        {
+                            success = false,
+                            message = "Doctor not found"
+                        });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    data = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost("UpdateQueueStatus")]
+        public async Task<IActionResult> UpdateQueueStatus([FromBody] UpdateQueueRequest request)
+        {
+            try
+            {
+                // Validate request data
+                if (request == null || request.QueueId <= 0)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Invalid queue request data"
+                    });
+                }
+
+                // Call service to update queue status
+                var result = await _doctorService.UpdateQueueStatusAsync(request);
+
+                if (!result.Success)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = result.Message
+                    });
+                }
+
+                // Return updated queue data
+                return Ok(new
+                {
+                    success = true,
+                    message = result.Message,
+                    data = result.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = $"Error updating queue status: {ex.Message}"
+                });
+            }
+        }
+    }
+}

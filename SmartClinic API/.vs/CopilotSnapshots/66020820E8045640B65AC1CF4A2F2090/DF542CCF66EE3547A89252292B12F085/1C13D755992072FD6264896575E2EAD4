@@ -1,0 +1,900 @@
+﻿using SmartClinic.Application.Interfaces;
+using SmartClinic.Domain.Entities;
+using SmartClinic.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using SmartClinic.Application.DTOs;
+namespace SmartClinic.Infrastructure.Services
+{
+    public class SystemAdminService : ISystemAdminService
+    {
+        private readonly ApplicationDbContext _context;
+        public SystemAdminService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        #region ROLES
+        public async Task<List<RolesDto>> GetRoles()
+        {
+            var roles = new List<RolesDto>();
+            var data = await _context.Roles.Where(x => x.IsDeleted == false).ToListAsync();
+            foreach (var role in data)
+            {
+                roles.Add(new RolesDto
+                {
+                    Id = role.Id,
+                    Name = role.Name,
+                    Discription = role.Discription,
+                    IsDeleted = role.IsDeleted
+                });
+            }
+            return roles;
+        }
+        public async Task<RolesDto?> GetRoleById(int id)
+        {
+            var data = await _context.Roles.Select(x => new RolesDto
+            {
+                Name = x.Name,
+                IsDeleted = x.IsDeleted,
+            }).FirstOrDefaultAsync(x => x.Id == id);
+            return data;
+        }
+        public async Task<ApiResponse<RolesDto>> CreateRole(RolesDto model)
+        {
+            var role = new Role
+            {
+                Name = model.Name,
+                IsDeleted = false,
+                Discription = model.Discription
+            };
+            await _context.Roles.AddAsync(role);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<RolesDto> { Success = true, Data = model };
+        }
+        public async Task<ApiResponse<RolesDto>> UpdateRole(RolesDto model)
+        {
+            var data = await _context.Roles.FirstOrDefaultAsync(x => x.Id == model.Id);
+            if (data == null)
+            {
+                return new ApiResponse<RolesDto> { Success = false, Message = "Role not found" };
+            }
+            data.Name = model.Name;
+            data.IsDeleted = data.IsDeleted;
+            data.Discription = model.Discription;
+            await _context.SaveChangesAsync();
+            return new ApiResponse<RolesDto> { Success = true, Data = model };
+        }
+        public async Task<ApiResponse<bool>> DeleteRole(int id)
+        {
+            var data = await _context.Roles.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (data == null)
+            {
+                return new ApiResponse<bool> { Success = false, Message = "Role not found" };
+            }
+            else
+            {
+                data.IsDeleted = true;
+                _context.Roles.Update(data);
+                await _context.SaveChangesAsync();
+                return new ApiResponse<bool> { Success = true, Data = true };
+            }
+        }
+        #endregion
+        #region DEPARTMENTS
+        public async Task<List<DepartmentDto>> GetDepartments()
+        {
+            var departments = await _context.Departments.Where(x => x.IsDeleted == false).ToListAsync();
+            return departments.Select(x => new DepartmentDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                IsDeleted = x.IsDeleted
+            }).ToList();
+        }
+        public async Task<ApiResponse<DepartmentDto>> CreateDepartment(DepartmentDto model)
+        {
+            var department = new Department
+            {
+                Name = model.Name,
+                IsDeleted = false
+            };
+            await _context.Departments.AddAsync(department);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<DepartmentDto> { Success = true, Data = model };
+        }
+        public async Task<DepartmentDto?> GetDepartmentById(int id)
+        {
+
+            var data = await _context.Departments.Select(x => new DepartmentDto
+            {
+                Name = x.Name,
+                IsDeleted = x.IsDeleted
+            }).FirstOrDefaultAsync(x => x.Id == id);
+            return data;
+
+        }
+        public async Task<ApiResponse<DepartmentDto>> UpdateDepartment(DepartmentDto model)
+        {
+            var data = await _context.Departments.FirstOrDefaultAsync(x => x.Id == model.Id);
+
+            if (data == null)
+            {
+                return new ApiResponse<DepartmentDto> { Success = false, Message = "Department not found" };
+            }
+            data.Name = model.Name;
+            data.Description = model.Description;
+            data.IsDeleted = data.IsDeleted;
+            await _context.SaveChangesAsync();
+            return new ApiResponse<DepartmentDto>
+            {
+                Success = true,
+                Data = model
+            };
+        }
+        public async Task<ApiResponse<bool>> DeleteDepartment(int id)
+        {
+            var data = await _context.Departments.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (data == null)
+            {
+                return new ApiResponse<bool> { Success = false, Message = "Department not found" };
+            }
+            data.IsDeleted = true;
+            _context.Departments.Update(data);
+
+            await _context.SaveChangesAsync();
+
+            return new ApiResponse<bool> { Success = true, Data = true };
+        }
+        #endregion
+        #region DOCTORS
+        public async Task<List<DoctorDto>> GetDoctors()
+        {
+            return await _context.Doctors
+                .Include(x => x.Department)
+                .Select(x => new DoctorDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    DepartmentId = x.DepartmentId,
+                    ContactNumber = x.ContactNumber,
+                    DepartmentName = x.Department != null ? x.Department.Name : null,
+                })
+                .ToListAsync();
+        }
+        public async Task<ApiResponse<DoctorDto>> CreateDoctor(DoctorDto model)
+        {
+            var doctor = new Doctor
+            {
+                Name = model.Name,
+                DepartmentId = model.DepartmentId,
+                IsAvailable = model.IsAvailable,
+                ContactNumber = model.ContactNumber
+            };
+            _context.Doctors.Add(doctor);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<DoctorDto> { Success = true, Data = model };
+        }
+        public async Task<DoctorDto?> GetDoctorById(int id)
+        {
+            var data = await _context.Doctors.Select(x => new DoctorDto
+            {
+                Name = x.Name,
+                IsAvailable = x.IsAvailable,
+                ContactNumber = x.ContactNumber,
+                DepartmentId = x.DepartmentId,
+                DepartmentName = x.Department != null ? x.Department.Name : null,
+            }).FirstOrDefaultAsync(x => x.Id == id);
+            return data;
+        }
+        public async Task<ApiResponse<DoctorDto>> UpdateDoctor(DoctorDto model)
+        {
+            var data = await _context.Doctors.FirstOrDefaultAsync(x => x.Id == model.Id);
+            if (data == null)
+            {
+                return new ApiResponse<DoctorDto> { Success = false, Message = "Doctor not found" };
+            }
+            data.Name = model.Name;
+            data.ContactNumber = model.ContactNumber;
+            data.DepartmentId = model.DepartmentId;
+            data.IsAvailable = model.IsAvailable;
+            _context.Doctors.Update(data);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<DoctorDto> { Success = true, Data = model };
+        }
+        public async Task<ApiResponse<bool>> DeleteDoctor(int id)
+        {
+            var data = await _context.Doctors.FirstOrDefaultAsync(x => x.Id == id);
+            if (data == null)
+            {
+                return new ApiResponse<bool> { Success = false, Message = "Doctor not found" };
+            }
+            data.IsAvailable = false;
+            _context.Doctors.Update(data);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<bool> { Success = true, Data = true };
+        }
+
+        public async Task<List<DoctorDto>> GetDoctorsByDepartmentAsync(int departmentId)
+        {
+            try
+            {
+                if (departmentId <= 0)
+                {
+                    Console.WriteLine($"Invalid department ID: {departmentId}");
+                    return new List<DoctorDto>();
+                }
+
+                // Verify department exists
+                var departmentExists = await _context.Departments
+                    .AnyAsync(d => d.Id == departmentId && d.IsDeleted == false);
+
+                if (!departmentExists)
+                {
+                    Console.WriteLine($"Department with ID {departmentId} not found or has been deleted");
+                    return new List<DoctorDto>();
+                }
+
+                // Get doctors by department
+                var doctors = await _context.Doctors
+                    .Where(d => d.DepartmentId == departmentId && d.IsAvailable == true)
+                    .Include(d => d.Department)
+                    .Select(d => new DoctorDto
+                    {
+                        Id = d.Id,
+                        Name = d.Name,
+                        DepartmentId = d.DepartmentId,
+                        DepartmentName = d.Department != null ? d.Department.Name : null,
+                        ContactNumber = d.ContactNumber,
+                        IsAvailable = d.IsAvailable,
+                        ConsultationTimeInMin = d.ConsultationTimeInMin,
+                        CreatedDateTime = d.CreatedDateTime,
+                        CreatedBy = d.CreatedBy,
+                        UpdatedDateTime = d.UpdatedDateTime,
+                        UpdatedBy = d.UpdatedBy,
+                        DepartmentDto = d.Department != null ? new DepartmentDto
+                        {
+                            Id = d.Department.Id,
+                            Name = d.Department.Name,
+                            Description = d.Department.Description,
+                            IsDeleted = d.Department.IsDeleted
+                        } : null
+                    })
+                    .ToListAsync();
+
+                if (!doctors.Any())
+                {
+                    Console.WriteLine($"No available doctors found for department ID: {departmentId}");
+                }
+
+                return doctors;
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"Argument null exception while fetching doctors for department {departmentId}: {ex.Message}");
+                return new List<DoctorDto>();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Database update exception while fetching doctors for department {departmentId}: {ex.Message}");
+                return new List<DoctorDto>();
+            }
+            catch (OperationCanceledException ex)
+            {
+                Console.WriteLine($"Operation cancelled while fetching doctors for department {departmentId}: {ex.Message}");
+                return new List<DoctorDto>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error occurred while fetching doctors for department {departmentId}: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                return new List<DoctorDto>();
+            }
+        }
+        #endregion
+        #region SYMPTOMS
+        public async Task<List<SymptomsDto>> GetSymptoms()
+        {
+            return await _context.Symptoms.Where(x => x.IsDeleted == false).Select(x => new SymptomsDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Weight = x.Weight
+            }).ToListAsync();
+        }
+        public async Task<ApiResponse<SymptomsDto>> CreateSymptom(SymptomsDto model)
+        {
+            var symptom = new Symptom
+            {
+                Name = model.Name,
+                Weight = model.Weight,
+                IsDeleted = false
+            };
+            _context.Symptoms.Add(symptom);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<SymptomsDto> { Success = true, Data = model };
+        }
+        public async Task<SymptomsDto?> GetSymptomById(int id)
+        {
+            var data = await _context.Symptoms.Select(n => new SymptomsDto
+            {
+                Id = n.Id,
+                Name = n.Name
+            }).FirstOrDefaultAsync(x => x.Id == id);
+            return data;
+        }
+        public async Task<ApiResponse<SymptomsDto>> UpdateSymptom(SymptomsDto model)
+        {
+            var data = await _context.Symptoms.FirstOrDefaultAsync(x => x.Id == model.Id);
+            if (data == null)
+            {
+                return new ApiResponse<SymptomsDto> { Success = false, Message = "Symptom not found" };
+            }
+            data.Name = model.Name;
+            data.Weight = model.Weight;
+            data.IsDeleted = data.IsDeleted;
+            _context.Symptoms.Update(data);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<SymptomsDto> { Success = true, Data = model };
+        }
+        public async Task<ApiResponse<bool>> DeleteSymptom(int id)
+        {
+            var data = await _context.Symptoms.FirstOrDefaultAsync(x => x.Id == id);
+            if (data == null)
+            {
+                return new ApiResponse<bool> { Success = false, Message = "Symptom not found" };
+            }
+            data.IsDeleted = true;
+            _context.Symptoms.Update(data);
+            await _context.SaveChangesAsync();
+            return new ApiResponse<bool> { Success = true, Data = true };
+        }
+        #endregion
+        #region Users
+        public async Task<List<UserDto>> GetUsers()
+        {
+            try
+            {
+                var users = await _context.Users
+                    .Include(u => u.Role) // Include the related Roles entity
+                    .Where(u => u.IsDeleted == false) // Filter out deleted users
+                    .Select(u => new UserDto
+                    {
+                        Id = u.Id,
+                        Name = u.Name,
+                        Email = u.Email,
+                        Username = u.Username,
+                        PasswordHash = u.PasswordHash,
+                        RoleId = u.RoleId,
+                        IsDeleted = u.IsDeleted,
+                        CreatedDateTime = u.CreatedDateTime,
+                        CreatedBy = u.CreatedBy,
+                        UpdatedDateTime = u.UpdatedDateTime,
+                        UpdatedBy = u.UpdatedBy,
+                        RoleName = u.Role.Name,
+                        RolesDto = new RolesDto
+                        {
+                            Id = u.Role.Id,
+                            Name = u.Role.Name,
+                            IsDeleted = u.Role.IsDeleted
+                        }
+                    })
+                    .ToListAsync();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (you can use a logging framework like Serilog, NLog, etc.)
+                Console.WriteLine($"An error occurred while fetching users: {ex.Message}");
+                // Return an empty list or handle it as per your application's requirements
+                return await Task.FromResult(new List<UserDto>());
+            }
+        }
+        public async Task<UserDto?> GetUserById(int id)
+        {
+            try
+            {
+                var user = await _context.Users
+                    .Include(u => u.Role) // Include the related Roles entity
+                    .Where(u => u.Id == id && u.IsDeleted == false) // Filter by ID and exclude deleted users
+                    .Select(u => new UserDto
+                    {
+                        Id = u.Id,
+                        Name = u.Name,
+                        Username = u.Username,
+                        RoleId = u.RoleId,
+                        IsDeleted = u.IsDeleted,
+                        CreatedDateTime = u.CreatedDateTime,
+                        CreatedBy = u.CreatedBy,
+                        UpdatedDateTime = u.UpdatedDateTime,
+                        UpdatedBy = u.UpdatedBy,
+                        RolesDto = new RolesDto
+                        {
+                            Id = u.Role.Id,
+                            Name = u.Role.Name,
+                            IsDeleted = u.Role.IsDeleted
+                        }
+                    })
+                    .FirstOrDefaultAsync();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while fetching user: {ex.Message}");
+                return await Task.FromResult<UserDto?>(null);
+            }
+        }
+        public async Task<ApiResponse<UserDto>> CreateUser(UserDto model)
+        {
+            try
+            {
+                model.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.PasswordHash);
+
+                var user = new User
+                {
+                    Name = model.Name,
+                    Email = model.Email,
+                    Username = model.Username,
+                    PasswordHash = model.PasswordHash,
+                    RoleId = model.RoleId,
+                    IsDeleted = false,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedBy = "SystemAdmin" // You can replace this with the actual user creating the record
+                };
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+                return new ApiResponse<UserDto> { Success = true, Data = model };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while creating user: {ex.Message}");
+                return new ApiResponse<UserDto> { Success = false, Data = model };
+            }
+        }
+        public async Task<ApiResponse<UserDto>> UpdateUser(UserDto model)
+        {
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == model.Id);
+                if (user == null)
+                {
+                    return new ApiResponse<UserDto> { Success = false, Message = "User not found", Data = model };
+                }
+                else
+                {
+                    if (user.PasswordHash == model.PasswordHash)
+                    {
+                        user.Name = model.Name;
+                        user.Email = model.Email;
+                        user.Username = model.Username;
+                        user.RoleId = model.RoleId;
+                        user.IsDeleted = user.IsDeleted;
+                        user.UpdatedDateTime = DateTime.UtcNow;
+                        user.UpdatedBy = "SystemAdmin"; // You can replace this with the actual user updating the record
+                        _context.Users.Update(user);
+                        await _context.SaveChangesAsync();
+                        return new ApiResponse<UserDto> { Success = true, Data = model };
+                    }
+                    else
+                    {
+
+                        model.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.PasswordHash);
+                        user.Name = model.Name;
+                        user.Email = model.Email;
+                        user.Username = model.Username;
+                        user.PasswordHash = model.PasswordHash;
+                        user.RoleId = model.RoleId;
+                        user.IsDeleted = user.IsDeleted;
+                        user.UpdatedDateTime = DateTime.UtcNow;
+                        user.UpdatedBy = "SystemAdmin"; // You can replace this with the actual user updating the record
+                        _context.Users.Update(user);
+                        await _context.SaveChangesAsync();
+                        return new ApiResponse<UserDto> { Success = true, Data = model };
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while updating user: {ex.Message}");
+                return new ApiResponse<UserDto> { Success = false, Data = model };
+            }
+        }
+        public async Task<ApiResponse<bool>> DeleteUser(int id)
+        {
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+                if (user == null)
+                {
+                    return new ApiResponse<bool> { Success = false, Message = "User not found", Data = false };
+                }
+                else
+                {
+                    user.IsDeleted = true;
+                    user.UpdatedDateTime = DateTime.UtcNow;
+                    user.UpdatedBy = "SystemAdmin"; // You can replace this with the actual user deleting the record
+                    _context.Users.Update(user);
+                    await _context.SaveChangesAsync();
+                    return new ApiResponse<bool> { Success = true, Data = true };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting user: {ex.Message}");
+                return new ApiResponse<bool> { Success = false, Data = false };
+            }
+        }
+        #endregion
+        #region Priority Configuration
+        public async Task<List<PriorityConfigDto>> GetPriorityConfigurations()
+        {
+            try
+            {
+                var data = await _context.PriorityConfigs.Where(x => x.IsDeleted == false)
+                     .Select(x => new PriorityConfigDto
+                     {
+                         Id = x.Id,
+                         Name = x.Name,
+                         PriorityLevel = x.PriorityLevel,
+                         Weight = x.Weight,
+                         IsDeleted = x.IsDeleted
+                     })
+                     .ToListAsync();
+                return data;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while fetching priority configurations: {ex.Message}");
+                return await Task.FromResult(new List<PriorityConfigDto>());
+            }
+        }
+        public async Task<PriorityConfigDto?> GetPriorityConfigurationById(int id)
+        {
+            try
+            {
+                var data = await _context.PriorityConfigs
+                    .Where(x => x.Id == id)
+                    .Select(x => new PriorityConfigDto
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        PriorityLevel = x.PriorityLevel,
+                        Weight = x.Weight,
+                        IsDeleted = x.IsDeleted
+                    })
+                    .FirstOrDefaultAsync();
+                return data;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while fetching priority configuration: {ex.Message}");
+                return await Task.FromResult<PriorityConfigDto?>(null);
+            }
+        }
+        public async Task<ApiResponse<PriorityConfigDto>> CreatePriorityConfiguration(PriorityConfigDto model)
+        {
+            try
+            {
+                var priorityConfig = new PriorityConfig
+                {
+                    Name = model.Name,
+                    PriorityLevel = model.PriorityLevel,
+                    Weight = model.Weight,
+                    IsDeleted = false
+                };
+                await _context.PriorityConfigs.AddAsync(priorityConfig);
+                await _context.SaveChangesAsync();
+                return new ApiResponse<PriorityConfigDto> { Success = true, Data = model };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while creating priority configuration: {ex.Message}");
+                return new ApiResponse<PriorityConfigDto> { Success = false, Data = model };
+            }
+        }
+        public async Task<ApiResponse<PriorityConfigDto>> UpdatePriorityConfiguration(PriorityConfigDto model)
+        {
+            try
+            {
+                var priorityConfig = await _context.PriorityConfigs.FindAsync(model.Id);
+                if (priorityConfig == null)
+                {
+                    return new ApiResponse<PriorityConfigDto> { Success = false, Data = model };
+                }
+
+                priorityConfig.Name = model.Name;
+                priorityConfig.PriorityLevel = model.PriorityLevel;
+                priorityConfig.Weight = model.Weight;
+                await _context.SaveChangesAsync();
+                return new ApiResponse<PriorityConfigDto> { Success = true, Data = model };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while updating priority configuration: {ex.Message}");
+                return new ApiResponse<PriorityConfigDto> { Success = false, Data = model };
+            }
+        }
+        public async Task<ApiResponse<bool>> DeletePriorityConfiguration(int id)
+        {
+            try
+            {
+                var priorityConfig = await _context.PriorityConfigs.FindAsync(id);
+                if (priorityConfig == null)
+                {
+                    return new ApiResponse<bool> { Success = false, Data = false };
+                }
+
+                priorityConfig.IsDeleted = true;
+                await _context.SaveChangesAsync();
+                return new ApiResponse<bool> { Success = true, Data = true };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting priority configuration: {ex.Message}");
+                return new ApiResponse<bool> { Success = false, Data = false };
+            }
+        }
+        #endregion
+        #region TokenStatus
+        public async Task<List<TokenStatusDTO>> GetTokenStatuses()
+        {
+            try
+            {
+                var tokenStatuses = await _context.TokenStatuses.Where(x => x.IsDeleted == false)
+                    .Select(x => new TokenStatusDTO
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                    })
+                    .ToListAsync();
+                return tokenStatuses;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while fetching token statuses: {ex.Message}");
+                return await Task.FromResult(new List<TokenStatusDTO>());
+            }
+        }
+        public async Task<ApiResponse<TokenStatusDTO>> CreateTokenStatus(TokenStatusDTO model)
+        {
+            try
+            {
+                var tokenStatus = new TokenStatus
+                {
+                    Name = model.Name,
+                    IsDeleted = false
+                };
+                await _context.TokenStatuses.AddAsync(tokenStatus);
+                await _context.SaveChangesAsync();
+                return new ApiResponse<TokenStatusDTO> { Success = true, Data = model };
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while creating token status: {ex.Message}");
+                return new ApiResponse<TokenStatusDTO> { Success = false, Data = model };
+            }
+        }
+        public async Task<TokenStatusDTO?> GetTokenStatusById(int id)
+        {
+            try
+            {
+                var tokenStatus = await _context.TokenStatuses
+                    .Where(x => x.Id == id)
+                    .Select(x => new TokenStatusDTO
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                    })
+                    .FirstOrDefaultAsync();
+                return tokenStatus;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while fetching token status: {ex.Message}");
+                return await Task.FromResult<TokenStatusDTO>(null);
+            }
+        }
+        public async Task<ApiResponse<TokenStatusDTO>> UpdateTokenStatus(TokenStatusDTO model)
+        {
+            try
+            {
+                var tokenStatus = await _context.TokenStatuses.FirstOrDefaultAsync(x => x.Id == model.Id);
+                if (tokenStatus == null)
+                {
+                    return new ApiResponse<TokenStatusDTO> { Success = false, Message = "Token status not found", Data = model };
+                }
+                else
+                {
+                    tokenStatus.Name = model.Name;
+                    _context.TokenStatuses.Update(tokenStatus);
+                    await _context.SaveChangesAsync();
+                    return new ApiResponse<TokenStatusDTO> { Success = true, Data = model };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while updating token status: {ex.Message}");
+                return new ApiResponse<TokenStatusDTO> { Success = false, Data = model };
+            }
+        }
+        public async Task<ApiResponse<bool>> DeleteTokenStatus(int id)
+        {
+            try
+            {
+                var tokenStatus = await _context.TokenStatuses.FirstOrDefaultAsync(x => x.Id == id);
+                if (tokenStatus == null)
+                {
+                    return new ApiResponse<bool> { Success = false, Message = "Token status not found", Data = false };
+                }
+                else
+                {
+                    tokenStatus.IsDeleted = true;
+                    _context.TokenStatuses.Update(tokenStatus);
+                    await _context.SaveChangesAsync();
+                    return new ApiResponse<bool> { Success = true, Data = true };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting token status: {ex.Message}");
+                return new ApiResponse<bool> { Success = false, Data = false };
+            }
+        }
+        #endregion
+
+        #region Priority Calculation
+        public async Task<ApiResponse<PriorityCalculationResultDto>> CalculatePriorityAsync(string symptoms)
+        {
+            try
+            {
+                // Validate input
+                if (string.IsNullOrWhiteSpace(symptoms))
+                {
+                    Console.WriteLine("Symptoms string is empty or null");
+                    return new ApiResponse<PriorityCalculationResultDto>
+                    {
+                        Success = false,
+                        Message = "Symptoms cannot be empty",
+                        Data = null
+                    };
+                }
+
+                // Parse symptoms
+                var symptomList = symptoms.Split(',')
+                    .Select(x => x.Trim())
+                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                    .ToList();
+
+                if (!symptomList.Any())
+                {
+                    Console.WriteLine("No valid symptoms found after parsing");
+                    return new ApiResponse<PriorityCalculationResultDto>
+                    {
+                        Success = false,
+                        Message = "No valid symptoms found",
+                        Data = null
+                    };
+                }
+
+                // Get matching symptoms and calculate total weight
+                var matchedSymptoms = await _context.Symptoms
+                    .Where(s => symptomList.Contains(s.Name) && s.IsDeleted == false)
+                    .ToListAsync();
+
+                if (!matchedSymptoms.Any())
+                {
+                    Console.WriteLine($"No symptoms found in database matching: {string.Join(", ", symptomList)}");
+                    return new ApiResponse<PriorityCalculationResultDto>
+                    {
+                        Success = false,
+                        Message = "No matching symptoms found in database",
+                        Data = null
+                    };
+                }
+
+                var totalWeight = matchedSymptoms.Sum(s => s.Weight ?? 0);
+
+                Console.WriteLine($"Total symptom weight calculated: {totalWeight} from {matchedSymptoms.Count} symptoms");
+
+                // Get matching priority configuration
+                var priority = await _context.PriorityConfigs
+                    .Where(p => p.IsDeleted == false && totalWeight >= (p.Weight ?? 0))
+                    .OrderByDescending(p => p.Weight)
+                    .FirstOrDefaultAsync();
+
+                if (priority == null)
+                {
+                    Console.WriteLine($"No priority configuration found for weight: {totalWeight}");
+                    return new ApiResponse<PriorityCalculationResultDto>
+                    {
+                        Success = false,
+                        Message = "No suitable priority level found for the given symptoms",
+                        Data = null
+                    };
+                }
+
+                // Map to DTO
+                var result = new PriorityCalculationResultDto
+                {
+                    Id = priority.Id,
+                    Name = priority.Name,
+                    PriorityLevel = priority.PriorityLevel,
+                    Weight = priority.Weight,
+                    TotalSymptomWeight = totalWeight,
+                    MatchedSymptoms = matchedSymptoms.Select(s => s.Name).ToList()
+                };
+
+                Console.WriteLine($"Priority calculated successfully: {priority.Name} (Level: {priority.PriorityLevel})");
+
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = true,
+                    Message = $"Priority calculated successfully using {matchedSymptoms.Count} symptom(s)",
+                    Data = result
+                };
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"Argument null exception in CalculatePriorityAsync: {ex.Message}");
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = false,
+                    Message = $"Argument error: {ex.Message}",
+                    Data = null
+                };
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"Format exception in CalculatePriorityAsync: {ex.Message}");
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = false,
+                    Message = $"Format error in symptoms parsing: {ex.Message}",
+                    Data = null
+                };
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Database update exception in CalculatePriorityAsync: {ex.Message}");
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = false,
+                    Message = "Database error occurred while calculating priority",
+                    Data = null
+                };
+            }
+            catch (OperationCanceledException ex)
+            {
+                Console.WriteLine($"Operation cancelled in CalculatePriorityAsync: {ex.Message}");
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = false,
+                    Message = "Operation was cancelled",
+                    Data = null
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in CalculatePriorityAsync: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                return new ApiResponse<PriorityCalculationResultDto>
+                {
+                    Success = false,
+                    Message = "An unexpected error occurred while calculating priority",
+                    Data = null
+                };
+            }
+        }
+        #endregion
+    }
+}
+

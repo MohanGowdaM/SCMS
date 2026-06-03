@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SmartClinic.API/SmartClinic.API.csproj" />
+  <Project Path="SmartClinic.Application/SmartClinic.Application.csproj" />
+  <Project Path="SmartClinic.Domain/SmartClinic.Domain.csproj" />
+  <Project Path="SmartClinic.Infrastructure/SmartClinic.Infrastructure.csproj" />
+</Solution>

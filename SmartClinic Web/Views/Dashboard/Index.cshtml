@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_Layout";
+}
+
+<div class="dashboard-header mb-4">
+
+    <div>
+        <h2 class="fw-bold mb-1">
+            Dashboard
+        </h2>
+
+        <p class="text-muted">
+            Welcome back, Admin 👋
+        </p>
+    </div>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+
+        <div class="dashboard-card card-blue">
+
+            <div>
+                <h6>Total Patients</h6>
+                <h2>1,250</h2>
+            </div>
+
+            <i class="bi bi-people-fill"></i>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="dashboard-card card-green">
+
+            <div>
+                <h6>Appointments</h6>
+                <h2>145</h2>
+            </div>
+
+            <i class="bi bi-calendar-check"></i>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="dashboard-card card-orange">
+
+            <div>
+                <h6>Doctors Available</h6>
+                <h2>18</h2>
+            </div>
+
+            <i class="bi bi-heart-pulse"></i>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="dashboard-card card-purple">
+
+            <div>
+                <h6>Revenue</h6>
+                <h2>₹75K</h2>
+            </div>
+
+            <i class="bi bi-cash-stack"></i>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4 g-4">
+
+    <div class="col-lg-8">
+
+        <div class="card dashboard-panel patient-card">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+                    Recent Patients
+                </h5>
+
+            </div>
+
+            <div class="card-body p-0">
+
+                <table class="table mb-0">
+
+                    <thead>
+
+                        <tr>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Ramesh</td>
+                            <td>Dr. Sharma</td>
+                            <td>
+                                <span class="status-badge badge-completed">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Sneha</td>
+                            <td>Dr. Kumar</td>
+                            <td>
+                                <span class="status-badge badge-waiting">
+                                    Waiting
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card dashboard-panel queue-card">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+                    Queue Status
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="queue-item">
+
+                    <span>Waiting</span>
+
+                    <strong>12</strong>
+
+                </div>
+
+                <div class="queue-item">
+
+                    <span>In Consultation</span>
+
+                    <strong>5</strong>
+
+                </div>
+
+                <div class="queue-item">
+
+                    <span>Completed</span>
+
+                    <strong>28</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

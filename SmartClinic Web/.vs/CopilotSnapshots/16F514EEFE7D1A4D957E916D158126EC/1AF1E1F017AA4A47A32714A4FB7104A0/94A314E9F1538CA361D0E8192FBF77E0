@@ -1,0 +1,151 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using SmartClinic.Web.Filters;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace SmartClinic.Web.Controllers
+{
+    [RoleAuthorize("Admin", "Doctor")]
+    public class DoctorsController : Controller
+    {
+        private readonly HttpClient _httpClient;
+
+        public DoctorsController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient("SmartClinicAPI");
+        }
+        public IActionResult DoctorTerminal()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDoctorQueue()
+        {
+            try
+            {
+                // JWT Token
+                var token = HttpContext.Session.GetString("JWToken");
+                
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message ="Session expired"
+                    });
+                }
+
+                // Get DoctorId Claim
+                var doctorIdClaim = HttpContext.Session.GetString("DoctorId");
+                
+                if (string.IsNullOrEmpty(doctorIdClaim))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Doctor claim not found"
+                    });
+                }
+
+                int doctorId = Convert.ToInt32(doctorIdClaim);
+
+                // Add JWT Token
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+                // Send doctorId to API
+                var response = await _httpClient.GetAsync($"Doctors/GetDoctorQueue?doctorId={doctorId}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to load queue"
+                    });
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                return Content(json,"application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateQueueStatus(
+    [FromBody] UpdateQueueRequest request)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Session expired. Please login again."
+                    });
+                }
+
+                // Validate request data
+                if (request == null || request.QueueId <= 0)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid queue request data"
+                    });
+                }
+
+                // Set current timestamp
+                request.UpdatedDateTime = DateTime.UtcNow;
+
+                // Add JWT Token to Authorization Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Serialize request to JSON
+                var json = JsonConvert.SerializeObject(request);
+
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                // Call API to update queue status
+                var response = await _httpClient.PostAsync("Doctors/UpdateQueueStatus", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to update queue status"
+                    });
+                }
+
+                // Read API response
+                var result = await response.Content.ReadAsStringAsync();
+
+                // Return the API response
+                return Content(result, "application/json");
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error updating queue status: {ex.Message}"
+                });
+            }
+        }
+    }
+}

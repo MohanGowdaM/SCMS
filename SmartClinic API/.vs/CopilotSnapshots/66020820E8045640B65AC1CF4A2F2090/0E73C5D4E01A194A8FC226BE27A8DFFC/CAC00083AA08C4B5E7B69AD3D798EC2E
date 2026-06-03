@@ -1,0 +1,64 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.DTOs;
+using SmartClinic.Application.Interfaces;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PatientsController : Controller
+    {
+        private readonly IPatientService _patientService;
+
+        public PatientsController(IPatientService patientService)
+        {
+            _patientService = patientService;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost("SavePatient")]
+        public async Task<IActionResult> SavePatient(PatientDto dto)
+        {
+            var result = await _patientService.AddPatientAsync(dto);
+
+            if (!result)
+            {
+                return BadRequest(new
+                {
+                    Message = "Failed to save patient"
+                });
+            }
+
+            return Ok(new
+            {
+                Message ="Patient saved successfully"
+            });
+        }
+
+        [HttpGet("GetPatientDetails/{patientId}")]
+        public async Task<IActionResult> GetPatientDetails(int patientId)
+        {
+            var patient = await _patientService.GetPatientDetailsAsync(patientId);
+
+            if (patient == null)
+            {
+                return NotFound(new
+                {
+                    Message = "Patient not found"
+                });
+            }
+
+            return Ok(new
+            {
+                Message = "Patient details retrieved successfully",
+                Data = patient
+            });
+        }
+    }
+}
+

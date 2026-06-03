@@ -1,0 +1,272 @@
+﻿@using SmartClinic.Web.Models.Lab
+@model List<LabQueueDto>
+
+<div class="doctor-terminal-container">
+
+    <!-- TOP STATS -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-title">TOTAL</div>
+            <h2 id="totalCount">0</h2>
+        </div>
+
+        <div class="stat-card success">
+            <div class="stat-title">COMPLETED</div>
+            <h2 id="completedCount">0</h2>
+        </div>
+
+        <div class="stat-card warning">
+            <div class="stat-title">WAITING</div>
+            <h2 id="waitingCount">0</h2>
+        </div>
+
+        <div class="stat-card hold">
+            <div class="stat-title">HOLD</div>
+            <h2 id="holdCount">0</h2>
+        </div>
+
+        <div class="stat-card danger">
+            <div class="stat-title">SKIPPED</div>
+            <h2 id="skipCount">0</h2>
+        </div>
+
+        <div class="stat-card review">
+            <div class="stat-title">REVIEW</div>
+            <h2 id="reviewCount">0</h2>
+        </div>
+
+    </div>
+@* 
+    <!-- STATUS PILLS -->
+    <div class="queue-status-strip">
+
+        <div class="status-pill called">
+            📞 Called <span id="calledPill">0</span>
+        </div>
+
+        <div class="status-pill lab">
+            🧪 Lab <span id="labPill">0</span>
+        </div>
+
+        <div class="status-pill scan">
+            🩻 Scan <span id="scanPill">0</span>
+        </div>
+
+        <div class="status-pill billing">
+            💳 Billing <span id="billingPill">0</span>
+        </div>
+
+        <div class="status-pill paid">
+            💰 Paid <span id="paidPill">0</span>
+        </div>
+
+        <div class="status-pill pharmacy">
+            💊 Pharmacy <span id="pharmacyPill">0</span>
+        </div>
+
+        <div class="status-pill medicine-dispensed">
+            💊 Dispensed <span id="dispensedPill">0</span>
+        </div>
+
+        <div class="status-pill admission">
+            🏥 Review <span id="reviewPill">0</span>
+        </div>
+
+        <div class="status-pill admitted">
+            ✅ Completed <span id="completePill">0</span>
+        </div>
+
+    </div> *@
+
+    <!-- MIDDLE GRID -->
+    <div class="middle-grid">
+
+        <!-- ACTIONS -->
+        <div class="action-panel">
+
+            <div class="btn-row">
+
+                <button class="action-btn primary">
+                    📞 CALL
+                </button>
+
+                <button class="action-btn danger">
+                    ⛔ END
+                </button>
+
+                <button class="action-btn secondary">
+                    🔄 RECALL
+                </button>
+
+                <button class="action-btn warning">
+                    ⏸ HOLD
+                </button>
+
+                <button class="action-btn dark">
+                    ⏭ SKIP
+                </button>
+
+                <button class="action-btn primary">
+                    ➡ NEXT
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CURRENT CALL -->
+        <div class="current-call-card">
+
+            <small>CURRENTLY CALLED</small>
+
+            <h1 id="currentToken">
+                ---
+            </h1>
+
+           <h5 id="currentPatient">
+    No Patient
+</h5>
+
+<!-- PAYMENT STATUS -->
+<div class="mt-2">
+
+    <!-- Pending -->
+    <span id="paymentPendingBadge"
+          class="badge bg-warning text-dark px-3 py-2">
+        Payment Pending
+    </span>
+
+    <!-- Paid -->
+    <span id="paymentCompletedBadge"
+          class="badge bg-success px-3 py-2 d-none">
+        Payment Completed
+    </span>
+
+</div>
+
+<small id="currentTest"
+       class="d-block mt-2">
+    ---
+</small>
+
+        </div>
+
+        <!-- NEXT 3 -->
+        <div class="queue-card">
+
+            <div class="card-header">
+                NEXT 3 QUEUE
+            </div>
+
+            <div id="nextQueueList">
+
+                <div class="text-muted">
+                    No upcoming patients
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM GRID -->
+    <div class="bottom-grid">
+
+        <!-- WAITING -->
+        <div class="queue-card">
+
+            <div class="card-header">
+                WAITING QUEUE
+            </div>
+
+            <div id="waitingQueueList">
+
+                <div class="text-muted">
+                    No waiting patients
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SKIPPED -->
+        <div class="queue-card">
+
+            <div class="card-header">
+                SKIPPED QUEUE
+            </div>
+
+            <div id="skippedQueueList">
+
+                <div class="text-muted">
+                    No skipped patients
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HOLD -->
+        <div class="queue-card">
+
+            <div class="card-header">
+                HOLD QUEUE
+            </div>
+
+            <div id="holdQueueList">
+
+                <div class="text-muted">
+                    No hold patients
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="card mt-3">
+
+        <div class="card-header">
+            <h5 class="mb-0">
+                Lab Queue List
+            </h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle"
+                       id="tblLabQueue">
+
+                    <thead>
+                        <tr>
+                            <th>Token No</th>
+                            <th>Patient Name</th>
+                            <th>Lab Tests</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/labqueue.js"
+            asp-append-version="true"></script>
+}

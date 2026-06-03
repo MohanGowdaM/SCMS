@@ -1,0 +1,1087 @@
+[
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AdmissionController",
+    "Method": "CompleteAdmission",
+    "RelativePath": "api/Admission/CompleteAdmission",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.CompleteAdmissionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AdmissionController",
+    "Method": "GetAdmitQueue",
+    "RelativePath": "api/Admission/GetAdmitQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AppointmentController",
+    "Method": "CheckAppointmentConflict",
+    "RelativePath": "api/Appointment/CheckAppointmentConflict",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.CheckAppointmentConflictRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AppointmentController",
+    "Method": "CollectPayment",
+    "RelativePath": "api/Appointment/CollectPayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AppointmentController",
+    "Method": "GetAllAppointments",
+    "RelativePath": "api/Appointment/GetAllAppointments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AppointmentController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Appointment/UpdateStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.UpdateStatusRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.BillingController",
+    "Method": "Index",
+    "RelativePath": "api/Billing",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.BillingController",
+    "Method": "CompletePayment",
+    "RelativePath": "api/Billing/CompletePayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.CompletePaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.BillingController",
+    "Method": "CompleteVisit",
+    "RelativePath": "api/Billing/CompleteVisit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SendToPharmacyRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.BillingController",
+    "Method": "GetBillingQueue",
+    "RelativePath": "api/Billing/GetBillingQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.BillingController",
+    "Method": "SendToPharmacy",
+    "RelativePath": "api/Billing/SendToPharmacy",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SendToPharmacyRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "AddMedicine",
+    "RelativePath": "api/Doctors/AddMedicine",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.AddMedicineRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "GetDoctorQueue",
+    "RelativePath": "api/Doctors/GetDoctorQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "GetLabTests",
+    "RelativePath": "api/Doctors/GetLabTests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "GetMedicines",
+    "RelativePath": "api/Doctors/GetMedicines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "GetScanTests",
+    "RelativePath": "api/Doctors/GetScanTests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "SaveConsultation",
+    "RelativePath": "api/Doctors/SaveConsultation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SaveConsultationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "SendToBilling",
+    "RelativePath": "api/Doctors/SendToBilling",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SendToBillingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "SendToLab",
+    "RelativePath": "api/Doctors/SendToLab",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SendToLabRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "SendToScan",
+    "RelativePath": "api/Doctors/SendToScan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.SendToScanRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.DoctorsController",
+    "Method": "UpdateQueueStatus",
+    "RelativePath": "api/Doctors/UpdateQueueStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.UpdateQueueRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.LabController",
+    "Method": "CompleteLabTest",
+    "RelativePath": "api/Lab/CompleteLabTest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.CompleteLabTestRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.LabController",
+    "Method": "GetLabQueue",
+    "RelativePath": "api/Lab/GetLabQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "DeletePatient",
+    "RelativePath": "api/Patients/DeletePatient/{patientId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "GetAllPatientDetails",
+    "RelativePath": "api/Patients/GetAllPatientDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "GetPatientDetails",
+    "RelativePath": "api/Patients/GetPatientDetails/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "SavePatient",
+    "RelativePath": "api/Patients/SavePatient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SmartClinic.Application.DTOs.PatientDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "SearchPatients",
+    "RelativePath": "api/Patients/SearchPatients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "UpdatePatient",
+    "RelativePath": "api/Patients/UpdatePatient",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SmartClinic.Application.DTOs.PatientDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PatientsController",
+    "Method": "ViewFullDetails",
+    "RelativePath": "api/Patients/ViewFullDetails/{patientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PharmacyController",
+    "Method": "DispenseMedicine",
+    "RelativePath": "api/Pharmacy/DispenseMedicine",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.DispenseMedicineRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.PharmacyController",
+    "Method": "GetPharmacyQueue",
+    "RelativePath": "api/Pharmacy/GetPharmacyQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.ScanController",
+    "Method": "Index",
+    "RelativePath": "api/Scan",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.ScanController",
+    "Method": "CompleteScan",
+    "RelativePath": "api/Scan/CompleteScan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.CompleteScanRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.ScanController",
+    "Method": "GetScanQueue",
+    "RelativePath": "api/Scan/GetScanQueue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CalculatePriority",
+    "RelativePath": "api/SystemAdmin/CalculatePriority",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "symptoms",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateDoctor",
+    "RelativePath": "api/SystemAdmin/CreateDoctor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.DoctorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreatePriorityConfiguration",
+    "RelativePath": "api/SystemAdmin/CreatePriorityConfiguration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.PriorityConfigDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateRole",
+    "RelativePath": "api/SystemAdmin/CreateRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.RolesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateSymptom",
+    "RelativePath": "api/SystemAdmin/CreateSymptom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.SymptomsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateTokenStatus",
+    "RelativePath": "api/SystemAdmin/CreateTokenStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.TokenStatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateUser",
+    "RelativePath": "api/SystemAdmin/CreateUsers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteDoctor",
+    "RelativePath": "api/SystemAdmin/DeleteDoctor/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeletePriorityConfiguration",
+    "RelativePath": "api/SystemAdmin/DeletePriorityConfiguration/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/SystemAdmin/DeleteRole/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteSymptom",
+    "RelativePath": "api/SystemAdmin/DeleteSymptom/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteTokenStatus",
+    "RelativePath": "api/SystemAdmin/DeleteTokenStatus/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/SystemAdmin/DeleteUser/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetDepartments",
+    "RelativePath": "api/SystemAdmin/Departments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "CreateDepartment",
+    "RelativePath": "api/SystemAdmin/Departments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.DepartmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetDepartmentById",
+    "RelativePath": "api/SystemAdmin/Departments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateDepartment",
+    "RelativePath": "api/SystemAdmin/Departments/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.DepartmentDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "DeleteDepartment",
+    "RelativePath": "api/SystemAdmin/Departments/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GenerateToken",
+    "RelativePath": "api/SystemAdmin/GenerateToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SmartClinic.Application.DTOs.GenerateTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetDoctorById",
+    "RelativePath": "api/SystemAdmin/GetDoctorById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetDoctors",
+    "RelativePath": "api/SystemAdmin/GetDoctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetDoctorsByDepartment",
+    "RelativePath": "api/SystemAdmin/GetDoctorsByDepartment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetPriorityConfigurations",
+    "RelativePath": "api/SystemAdmin/GetPriorityConfigurations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetPriorityConfigurationById",
+    "RelativePath": "api/SystemAdmin/GetPriorityConfigurations/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetRoleById",
+    "RelativePath": "api/SystemAdmin/GetRoleById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetRoles",
+    "RelativePath": "api/SystemAdmin/GetRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetSymptomById",
+    "RelativePath": "api/SystemAdmin/GetSymptomById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetSymptoms",
+    "RelativePath": "api/SystemAdmin/GetSymptoms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetTokenStatuses",
+    "RelativePath": "api/SystemAdmin/GetTokenStatuses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetTokenStatusById",
+    "RelativePath": "api/SystemAdmin/GetTokenStatuses/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetUserById",
+    "RelativePath": "api/SystemAdmin/GetUserById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateDoctor",
+    "RelativePath": "api/SystemAdmin/UpdateDoctor",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.DoctorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdatePriorityConfiguration",
+    "RelativePath": "api/SystemAdmin/UpdatePriorityConfiguration/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.PriorityConfigDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/SystemAdmin/UpdateRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.RolesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateSymptom",
+    "RelativePath": "api/SystemAdmin/UpdateSymptom",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.SymptomsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateTokenStatus",
+    "RelativePath": "api/SystemAdmin/UpdateTokenStatus/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.TokenStatusDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/SystemAdmin/UpdateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartClinic.Application.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartClinic.API.Controllers.SystemAdminController",
+    "Method": "GetUsers",
+    "RelativePath": "api/SystemAdmin/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

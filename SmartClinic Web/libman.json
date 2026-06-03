@@ -1,0 +1,38 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.3.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "bootstrap-icons@1.11.3",
+      "destination": "wwwroot/lib/bootstrap-icons/"
+    },
+    {
+      "library": "jquery@3.7.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "sweetalert2@11.23.0",
+      "destination": "wwwroot/lib/sweetalert2/"
+    },
+    {
+      "library": "datatables.net@2.3.4",
+      "destination": "wwwroot/lib/datatables"
+    },
+    {
+      "library": "datatables.net-bs5@2.3.4",
+      "destination": "wwwroot/lib/datatables.net-bs5/"
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
+    },
+    {
+      "library": "font-awesome@6.5.2",
+      "destination": "wwwroot/lib/fontawesome/"
+    }
+  ]
+}

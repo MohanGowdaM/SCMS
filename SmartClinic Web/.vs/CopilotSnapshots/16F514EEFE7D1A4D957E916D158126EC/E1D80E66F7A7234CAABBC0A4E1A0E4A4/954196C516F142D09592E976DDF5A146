@@ -1,0 +1,296 @@
+﻿<div class="modal fade"
+     id="viewPatientModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg custom-patient-modal">
+
+        <div class="modal-content patient-modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header patient-modal-header">
+
+                <div>
+
+                    <h4 class="modal-title mb-1">
+
+                        <i class="bi bi-eye-fill me-2"></i>
+
+                        Patient Details
+
+                    </h4>
+
+                    <small class="patient-modal-subtitle">
+
+                        Complete patient information
+
+                    </small>
+
+                </div>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body p-4 bg-light">
+
+                <div class="row g-3">
+
+                    <!-- Patient ID -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-person-badge text-primary"></i>
+
+                                <span class="info-label">Patient ID</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewUhid">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Patient Name -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-person text-primary"></i>
+
+                                <span class="info-label">Patient Name</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewName">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Age -->
+                    <div class="col-md-4">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-calendar-event text-primary"></i>
+
+                                <span class="info-label">Age</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewAge">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-md-4">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-gender-ambiguous text-primary"></i>
+
+                                <span class="info-label">Gender</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewGender">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="col-md-4">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-calendar text-primary"></i>
+
+                                <span class="info-label">Date of Birth</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewDob">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-telephone text-primary"></i>
+
+                                <span class="info-label">Mobile Number</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewMobile">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Symptoms -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-heart-pulse text-primary"></i>
+
+                                <span class="info-label">Symptoms</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewSymptoms">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="col-12">
+
+                        <hr class="my-2 border-secondary-subtle" />
+
+                    </div>
+
+                    <!-- Audit Information Section Header -->
+                    <div class="col-12">
+
+                        <h6 class="text-muted fw-bold mb-0">
+
+                            <i class="bi bi-clock-history me-2"></i>
+
+                            Audit Information
+
+                        </h6>
+
+                    </div>
+
+                    <!-- Created Date -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-calendar-check text-success"></i>
+
+                                <span class="info-label">Created Date</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewCreatedDate">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Created By -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-person-check text-success"></i>
+
+                                <span class="info-label">Created By</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewCreatedBy">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Updated Date -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-calendar-event-fill text-warning"></i>
+
+                                <span class="info-label">Updated Date</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewUpdatedDate">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Updated By -->
+                    <div class="col-md-6">
+
+                        <div class="info-card">
+
+                            <div class="info-card-header">
+
+                                <i class="bi bi-pencil-square text-warning"></i>
+
+                                <span class="info-label">Updated By</span>
+
+                            </div>
+
+                            <p class="info-value" id="viewUpdatedBy">N/A</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer patient-modal-footer">
+
+                <button type="button"
+                        class="btn btn-primary px-4"
+                        id="btnCloseViewPatient"
+                        data-bs-dismiss="modal">
+
+                    <i class="bi bi-x-lg me-1"></i>
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,363 @@
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\appsettings.Development.json
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\appsettings.json
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.staticwebassets.endpoints.json
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.exe
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.deps.json
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.runtimeconfig.json
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Azure.Core.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Azure.Identity.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Dapper.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\System.ClientModel.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\System.Memory.Data.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.dll
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.pdb
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.pdb
+D:\SMARTClinic.API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.AssemblyReference.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfoInputs.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfo.cs
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.CoreCompileInputs.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cs
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\scopedcss\bundle\SmartClinic.API.styles.css
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.development.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\swae.build.ex.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartCli.0E7E5B0A.Up2Date
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\refint\SmartClinic.API.dll
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.genruntimeconfig.cache
+D:\SMARTClinic.API\SmartClinic.API\obj\Debug\net10.0\ref\SmartClinic.API.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.Development.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.staticwebassets.endpoints.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.exe
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.deps.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.runtimeconfig.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Core.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Identity.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Dapper.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.ClientModel.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Memory.Data.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.AssemblyReference.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfoInputs.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfo.cs
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.CoreCompileInputs.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cs
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\scopedcss\bundle\SmartClinic.API.styles.css
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.development.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\swae.build.ex.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartCli.0E7E5B0A.Up2Date
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\refint\SmartClinic.API.dll
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.genruntimeconfig.cache
+D:\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\ref\SmartClinic.API.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.Development.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.staticwebassets.endpoints.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.exe
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.deps.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.runtimeconfig.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Core.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Identity.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Dapper.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.ClientModel.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Memory.Data.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.AssemblyReference.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.GeneratedMSBuildEditorConfig.editorconfig
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfoInputs.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfo.cs
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.CoreCompileInputs.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cs
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\scopedcss\bundle\SmartClinic.API.styles.css
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.development.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\swae.build.ex.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartCli.0E7E5B0A.Up2Date
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\refint\SmartClinic.API.dll
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.genruntimeconfig.cache
+E:\SMARTCLINIC\02-06-2026\SMARTClinic\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\ref\SmartClinic.API.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.Development.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\appsettings.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.staticwebassets.endpoints.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.exe
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.deps.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.runtimeconfig.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Core.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Azure.Identity.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Dapper.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Newtonsoft.Json.Bson.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.ClientModel.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Memory.Data.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Application.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Infrastructure.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\bin\Debug\net10.0\SmartClinic.Domain.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.AssemblyReference.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfoInputs.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.AssemblyInfo.cs
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.csproj.CoreCompileInputs.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cs
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.MvcApplicationPartsAssemblyInfo.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\scopedcss\bundle\SmartClinic.API.styles.css
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.development.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\swae.build.ex.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartCli.0E7E5B0A.Up2Date
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\refint\SmartClinic.API.dll
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.pdb
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\SmartClinic.API.genruntimeconfig.cache
+D:\SMARTClinic\03.06.2026\SmartClinic API\SmartClinic.API\obj\Debug\net10.0\ref\SmartClinic.API.dll

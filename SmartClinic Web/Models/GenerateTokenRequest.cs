@@ -1,0 +1,24 @@
+﻿namespace SmartClinic.Web.Models
+{
+    public class GenerateTokenRequest
+    {
+        public int PatientId { get; set; }
+
+        public List<string>? Symptoms { get; set; }
+
+        public string? OtherSymptoms { get; set; }
+
+        public int PriorityId { get; set; }
+
+        public int DepartmentId { get; set; }
+
+        public int DoctorId { get; set; }
+
+        public string? VisitType { get; set; }
+        public DateTime? AppointmentDateTime { get; set; }
+
+        public bool IsReschedule { get; set; }
+
+        public int? ExistingTokenId { get; set; }
+    }
+}

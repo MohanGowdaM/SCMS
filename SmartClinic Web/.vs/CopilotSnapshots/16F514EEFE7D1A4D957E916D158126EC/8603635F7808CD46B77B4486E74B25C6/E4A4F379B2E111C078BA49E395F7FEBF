@@ -1,0 +1,89 @@
+﻿.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.table thead tr th {
+    background: #f8fafc;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.badge-active {
+    background: #22c55e;
+}
+
+.badge-waiting {
+    background: #f59e0b;
+}
+
+/* Modal top alignment */
+.custom-patient-modal {
+    margin-top: 60px;
+    max-width: 1000px;
+}
+
+/* Modal Container */
+.patient-modal-content {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18);
+}
+
+/* Header */
+.patient-modal-header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 24px 30px;
+}
+
+.patient-modal-subtitle {
+    opacity: .8;
+    font-size: 14px;
+}
+
+/* Body */
+.modal-body {
+    background: #f8fafc;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #dbe3ec;
+    box-shadow: none;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 .15rem rgba(37,99,235,.15);
+    }
+
+/* Input icons */
+.input-group-text {
+    border-radius: 12px 0 0 12px;
+    background: white;
+}
+
+/* Footer */
+.patient-modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #e5e7eb;
+    background: white;
+}
+
+    .patient-modal-footer .btn {
+        min-width: 140px;
+        border-radius: 10px;
+        font-weight: 600;
+    }

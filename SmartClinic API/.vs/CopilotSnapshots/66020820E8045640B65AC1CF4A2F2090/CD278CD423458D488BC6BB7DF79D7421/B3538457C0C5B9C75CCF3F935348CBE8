@@ -1,0 +1,30 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=DESKTOP-ES6N859;Initial Catalog=SmartClinicDB;Persist Security Info=True;User ID=sa;Password=P@55w0rd;Trust Server Certificate=True;"
+  },
+  "JwtSettings": {
+    "Key": "SmartClinicSuperSecretKey2026@123456",
+
+    "Issuer": "SmartClinicAPI",
+
+    "Audience": "SmartClinicWEB",
+
+    "DurationInMinutes": 120
+  },
+  "EmailSettings": {
+    "SmtpHost": "smtp.gmail.com",
+    "SmtpPort": "587",
+    "SmtpUsername": "your-email@gmail.com",
+    "SmtpPassword": "your-app-password",
+    "FromEmail": "your-email@gmail.com",
+    "FromName": "SmartClinic"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+
+  "AllowedHosts": "*"
+}

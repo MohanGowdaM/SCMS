@@ -1,0 +1,32 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SmartClinic.Application.Interfaces;
+
+namespace SmartClinic.API.Controllers
+{
+    [Authorize]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LabController : Controller
+    {
+        private readonly ILabService _labService;
+
+        public LabController(ILabService labService)
+        {
+            _labService = labService;
+        }
+        [HttpGet("GetLabQueue")]
+        public async Task<IActionResult>GetLabQueue()
+        {
+            var result = await _labService.GetLabQueueAsync();
+
+            return Ok(
+                new
+                {
+                    success = true,
+
+                    data = result
+                });
+        }
+    }
+}

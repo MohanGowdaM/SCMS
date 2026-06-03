@@ -1,0 +1,33 @@
+@model SmartClinic.Web.Models.SystemAdmin.DoctorDto
+
+<div class="modal fade" id="doctorModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="doctorModalTitle">Doctor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="doctorForm">
+          <input type="hidden" id="Doctor_Id" />
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="Doctor_FullName" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Department</label>
+            <select id="Doctor_DepartmentId" class="form-select"></select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contact Number</label>
+            <input type="text" id="Doctor_ContactNumber" class="form-control" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="doctorSaveBtn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

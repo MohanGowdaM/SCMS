@@ -1,0 +1,125 @@
+﻿@model SmartClinic.Web.Models.Patient.PatientDto
+
+@{
+    ViewData["Title"] = "Add Patient";
+}
+
+<div class="container-fluid">
+
+    <!-- Breadcrumb -->
+    <div class="page-header">
+
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-1">
+
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Dashboard"
+                               asp-action="Index">
+
+                            SMART Clinic
+
+                        </a>
+                    </li>
+
+                    <li class="breadcrumb-item">
+
+                        Patient Management
+
+                    </li>
+
+                    <li class="breadcrumb-item active">
+
+                        Add Patient
+
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="card dashboard-panel">
+
+        <div class="card-header">
+
+            <h5>Add New Patient</h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="AddPatient" method="post">
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">Patient Name</label>
+
+                        <input asp-for="Name" class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">Age</label>
+
+                        <input asp-for="Age" class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">Gender</label>
+
+                        <select asp-for="Gender" class="form-select">
+
+                            <option value="">Select</option>
+
+                            <option>Male</option>
+
+                            <option>Female</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">Mobile</label>
+
+                        <input asp-for="MobileNumber" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">Symptoms</label>
+
+                        <input asp-for="Symptoms" class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <button type="submit" class="btn btn-success">Save Patient</button>
+
+                    <a asp-action="GetAllPatientList" class="btn btn-secondary">Cancel</a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script src="~/js/patient-add.js"
+            asp-append-version="true"></script>
+}

@@ -1,0 +1,363 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using SmartClinic.Web.Filters;
+using SmartClinic.Web.Models;
+using SmartClinic.Web.Models.Account;
+using SmartClinic.Web.Models.Patient;
+using System.Net.Http.Headers;
+using System.Text;
+
+namespace SmartClinic.Web.Controllers
+{
+    [RoleAuthorize("Admin","Doctor","Receptionist")]
+    public class PatientsController : Controller
+    {
+        private readonly HttpClient _httpClient;
+
+        public PatientsController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClient = httpClientFactory.CreateClient("SmartClinicAPI");
+        }
+       
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllPatientList()
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                // Redirect to Login if token missing
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer",token);
+
+                // Call API
+                var response = await _httpClient.GetAsync("Patients/GetAllPatientDetails");
+
+                // Handle API failure
+                if (!response.IsSuccessStatusCode)
+                {
+                    ViewBag.ErrorMessage ="Failed to fetch patient list";
+
+                    return View(new List<PatientDto>());
+                }
+
+                // Read API response
+                string result = await response.Content.ReadAsStringAsync();
+
+                // Deserialize JSON response
+                var apiResponse = JsonConvert.DeserializeObject<ApiResponse<List<PatientDto>>>(result);
+
+                // Return View with Patient List
+                return View(apiResponse?.Data ?? new List<PatientDto>());
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = $"Error fetching patient list: {ex.Message}";
+
+                return View(new List<PatientDto>());
+            }
+        }
+
+
+
+        [HttpGet]
+        public IActionResult AddPatientModal()
+        {
+            return PartialView("_AddPatientModal");
+        }
+                
+
+        [HttpPost]
+        public async Task<IActionResult>SavePatient(PatientDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Invalid patient data"
+                });
+            }
+
+            // JWT Token
+            var token = HttpContext.Session.GetString("JWToken");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Session expired. Please login again."
+                });
+            }
+
+            // Authorization
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",token);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var content = new StringContent(json,Encoding.UTF8,"application/json");
+
+            var response = await _httpClient.PostAsync("Patients/SavePatient",content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Failed to save patient"
+                });
+            }
+
+            // Read API response
+            var result = await response.Content.ReadAsStringAsync();
+
+            // Deserialize response
+            var apiResponse = JsonConvert.DeserializeObject<ApiResponse<PatientDto>>(result);
+
+            if (apiResponse == null ||!apiResponse.Success)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = apiResponse?.Message ?? "Unable to save patient"
+                });
+            }
+
+            // Return patient data
+            return Json(new
+            {
+                success = true,
+                message = apiResponse.Message,
+
+                data = apiResponse.Data
+            });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewPatient(int id)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Call API to get patient details
+                var response = await _httpClient.GetAsync($"Patients/ViewFullDetails/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to fetch patient details"
+                    });
+                }
+
+                var jsonContent = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeObject<ApiResponse<PatientDto>>(jsonContent);
+
+                if (apiResponse?.Data == null)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Patient not found"
+                    });
+                }
+
+                return Json(new
+                {
+                    success = true,
+                    data = apiResponse.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error fetching patient: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpGet]
+        public IActionResult EditPatientModal(int id)
+        {
+            return PartialView("_EditPatientModal", new { id });
+        }
+
+        [HttpGet]
+        public IActionResult ViewPatientModal(int id)
+        {
+            return PartialView("_ViewPatientModal", new { id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPatientDetails(int id)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Call API to get patient details
+                var response = await _httpClient.GetAsync($"Patients/GetPatientDetails/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to fetch patient details"
+                    });
+                }
+
+                var jsonContent = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeObject<ApiResponse<PatientDto>>(jsonContent);
+
+                return Json(new
+                {
+                    success = true,
+                    data = apiResponse?.Data
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error fetching patient: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdatePatient(PatientDto model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Invalid patient data"
+                    });
+                }
+
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var json = JsonConvert.SerializeObject(model);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                // Call API to update patient
+                var response = await _httpClient.PutAsync($"Patients/UpdatePatient", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to update patient"
+                    });
+                }
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Patient updated successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error updating patient: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeletePatient(int id)
+        {
+            try
+            {
+                // Get JWT Token from Session
+                var token = HttpContext.Session.GetString("JWToken");
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Unauthorized"
+                    });
+                }
+
+                // Add JWT Token to Header
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                // Call API to delete patient
+                var response = await _httpClient.DeleteAsync($"Patients/DeletePatient/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return Json(new
+                    {
+                        success = false,
+                        message = "Failed to delete patient"
+                    });
+                }
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Patient deleted successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = $"Error deleting patient: {ex.Message}"
+                });
+            }
+        }
+    }
+}
