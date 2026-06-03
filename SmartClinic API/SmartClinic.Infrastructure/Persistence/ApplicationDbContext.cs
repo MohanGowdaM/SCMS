@@ -31,7 +31,7 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Symptom> Symptoms { get; set; }
-
+public virtual DbSet<Service> Service { get; set; }
     public virtual DbSet<Token> Tokens { get; set; }
 
     public virtual DbSet<TokenSequence> TokenSequences { get; set; }
